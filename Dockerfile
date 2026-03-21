@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Set version based on your GitHub list
-ENV GODOT_VERSION="4.5.2"
+ENV GODOT_VERSION="4.6.1"
 ENV RELEASE_NAME="stable"
 
 # 1. Download the standard Linux 64-bit binary
