@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkaurlfo0wht5"]
+
+[ext_resource type="Texture2D" uid="uid://boeqw7g2108e4" path="res://assets/map/ASTM/ASTM-tile00.jpg" id="1_bo7w0"]
+[ext_resource type="Script" uid="uid://8fhsntd4gifg" path="res://src/map/map_piece.gd" id="2_stkp2"]
+
+[node name="MapPiece" type="Sprite2D"]
+texture = ExtResource("1_bo7w0")
+centered = false
+script = ExtResource("2_stkp2")

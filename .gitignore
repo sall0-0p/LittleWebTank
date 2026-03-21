@@ -1,0 +1,9 @@
+# Godot-specific ignores
+.godot/
+*.import/
+export_presets.cfg.bak
+# Build artifacts
+build/
+# Shared user settings
+.vsc/
+.idea/
