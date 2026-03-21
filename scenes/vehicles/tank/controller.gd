@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	rotation += rot;
 	
 	# acceleration / deceleration logic
-	var forward = Vector2.from_angle(rotation).rotated(deg_to_rad(90));
+	var forward = Vector2.from_angle(rotation);
 	var relative_acceleration: float = 1.0 - current_speed_ms / max_speed;
 	var step_amount := 0.0;
 	if (step_amount != 0):
@@ -47,6 +47,6 @@ func _physics_process(delta: float) -> void:
 		step_amount = friction * delta;
 	
 	current_speed_ms = move_toward(current_speed_ms, target_speed, step_amount);
-	velocity = -(current_speed_ms * ART_SCALE_FACTOR) * forward;
+	velocity = (current_speed_ms * ART_SCALE_FACTOR) * forward;
 	
 	move_and_slide()

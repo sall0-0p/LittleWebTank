@@ -6,6 +6,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	visible = Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)
 	if (visible):
-		var facing = Vector2.from_angle(rotation).rotated(deg_to_rad(90));
+		var facing = Vector2.from_angle(rotation);
 		var length = (get_local_mouse_position() - Vector2.ZERO).length()
-		set_point_position(1, facing * -length);
+		set_point_position(1, facing * length);

@@ -7,3 +7,4 @@ build/
 # Shared user settings
 .vsc/
 .idea/
+.DS_Store

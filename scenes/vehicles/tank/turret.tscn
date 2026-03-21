@@ -1,28 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://beno1u7k3kvbp"]
+[gd_scene format=3 uid="uid://beno1u7k3kvbp"]
 
 [ext_resource type="Texture2D" uid="uid://kufx4awp1y7x" path="res://assets/vehicles/turrets/Image-A41 Centurion Mk 2 turret.png" id="1_fkcvl"]
 [ext_resource type="Script" uid="uid://d4dwgjpcqyx1x" path="res://scenes/vehicles/tank/turret.gd" id="1_ml2v0"]
 [ext_resource type="Script" uid="uid://bmrr11u3m8r41" path="res://scenes/vehicles/tank/targeting_line.gd" id="3_d1xak"]
 [ext_resource type="Script" uid="uid://c4bs41vfi7q1u" path="res://scenes/vehicles/tank/pointing_line.gd" id="4_o5360"]
 
-[node name="Turret" type="Node2D"]
+[node name="Turret" type="Node2D" unique_id=1065044381]
 z_index = 2
 script = ExtResource("1_ml2v0")
+shell_velocity = 400.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=254579714]
 position = Vector2(0, -2)
+rotation = 1.5707964
 texture = ExtResource("1_fkcvl")
 
-[node name="MainGun" type="Marker2D" parent="."]
-position = Vector2(0, -67)
+[node name="MainGun" type="Marker2D" parent="." unique_id=1384200469]
+position = Vector2(65, -2)
 
-[node name="TargetingLine" type="Line2D" parent="."]
+[node name="TargetingLine" type="Line2D" parent="." unique_id=1082871586]
 z_index = -1
 points = PackedVector2Array(0, 0)
 width = 1.0
 script = ExtResource("3_d1xak")
 
-[node name="PointingLine" type="Line2D" parent="."]
+[node name="PointingLine" type="Line2D" parent="." unique_id=516373012]
 z_index = -2
 points = PackedVector2Array(0, 0)
 width = 1.0
