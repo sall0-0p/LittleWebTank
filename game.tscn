@@ -23,3 +23,8 @@ position = Vector2(711, 666)
 turn_speed = 25.0
 
 [node name="GlobalProjectiles" type="Node" parent="." unique_id=726917403]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1094915579]
+visible = false
+energy = 0.2
+height = 0.2
