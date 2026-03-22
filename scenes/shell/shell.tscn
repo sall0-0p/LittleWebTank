@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lk85exmuxk72" path="res://scenes/shell/shell.gd" id="1_et0og"]
 [ext_resource type="Texture2D" uid="uid://dlvn8gc8rkow0" path="res://assets/effects/shots.png" id="2_6rs1g"]
+[ext_resource type="Script" uid="uid://vhuyts5qc1v3" path="res://scenes/shell/warhead/he_warhead.gd" id="3_6rs1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2724"]
 size = Vector2(5, 64)
@@ -21,3 +22,6 @@ shape = SubResource("RectangleShape2D_h2724")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1082597426]
 rotation = 1.5707964
 texture = SubResource("AtlasTexture_7fyyo")
+
+[node name="Warhead" type="Node2D" parent="." unique_id=1249378203]
+script = ExtResource("3_6rs1g")

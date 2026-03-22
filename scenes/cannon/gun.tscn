@@ -2,6 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://qw3gcry72fsw" path="res://assets/vehicles/guns/Image-A41 Centurion Mk 1 gun.png" id="1_aleei"]
 [ext_resource type="Script" uid="uid://b7d3yh5cutbim" path="res://scenes/cannon/gun.gd" id="2_n5w4a"]
+[ext_resource type="Texture2D" uid="uid://bdw6cuw0w10uf" path="res://assets/hud/reticle-inner.png" id="3_1hket"]
+[ext_resource type="Script" uid="uid://bmrr11u3m8r41" path="res://scenes/vehicles/hud/targeting_reticle.gd" id="3_kgxuk"]
+[ext_resource type="Script" uid="uid://c4bs41vfi7q1u" path="res://scenes/vehicles/hud/pointing_reticle.gd" id="4_1hket"]
+[ext_resource type="Script" uid="uid://bfnv11ajwlfqq" path="res://scenes/vehicles/hud/targeting_hud.gd" id="5_d5tsr"]
+[ext_resource type="Texture2D" uid="uid://wwbrbaeekl4c" path="res://assets/hud/reticle-outer.png" id="5_sm46l"]
+
+[sub_resource type="SystemFont" id="SystemFont_kgxuk"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_sm46l"]
+line_spacing = 0.0
+font = SubResource("SystemFont_kgxuk")
+font_size = 14
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Gun" type="Sprite2D" unique_id=1459252975]
 rotation = 1.5707964
@@ -14,3 +29,29 @@ position = Vector2(-1.136496e-06, -26)
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=428245212]
 position = Vector2(-8.742278e-07, -20)
+
+[node name="TargetingReticle" type="Sprite2D" parent="." unique_id=2117851337]
+z_index = 200
+texture = ExtResource("3_1hket")
+script = ExtResource("3_kgxuk")
+
+[node name="PointingReticle" type="Sprite2D" parent="." unique_id=486887034]
+z_index = 200
+texture = ExtResource("5_sm46l")
+script = ExtResource("4_1hket")
+
+[node name="TargetingHUD" type="Node2D" parent="." unique_id=1265574177]
+top_level = true
+z_index = 200
+script = ExtResource("5_d5tsr")
+
+[node name="Label" type="Label" parent="TargetingHUD" unique_id=492589834]
+offset_right = 40.0
+offset_bottom = 51.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "HE
+30*
+200m"
+label_settings = SubResource("LabelSettings_sm46l")
+metadata/_edit_use_anchors_ = true

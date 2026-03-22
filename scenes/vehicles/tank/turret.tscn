@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://d4dwgjpcqyx1x" path="res://scenes/vehicles/tank/turret.gd" id="1_ml2v0"]
 [ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/shadow/shadow_sprite.tscn" id="2_38p1k"]
 [ext_resource type="Texture2D" uid="uid://d21yg657x5qo0" path="res://assets/vehicles/turrets/Image-A41 Centurion Mk 1 turret.png" id="3_7j7tn"]
-[ext_resource type="Script" uid="uid://bmrr11u3m8r41" path="res://scenes/vehicles/tank/targeting_line.gd" id="3_d1xak"]
 [ext_resource type="PackedScene" uid="uid://bqv4edxvqg8h3" path="res://scenes/cannon/gun.tscn" id="4_7j7tn"]
-[ext_resource type="Script" uid="uid://c4bs41vfi7q1u" path="res://scenes/vehicles/tank/pointing_line.gd" id="4_o5360"]
 
 [node name="Turret" type="Node2D" unique_id=1065044381]
 z_index = 2
@@ -25,17 +23,4 @@ texture = ExtResource("3_7j7tn")
 
 [node name="Gun" parent="." unique_id=1459252975 instance=ExtResource("4_7j7tn")]
 position = Vector2(46.5, 0)
-shell_velocity = 200.0
-
-[node name="TargetingLine" type="Line2D" parent="." unique_id=1082871586]
-z_index = -1
-points = PackedVector2Array(0, 0)
-width = 1.0
-script = ExtResource("3_d1xak")
-
-[node name="PointingLine" type="Line2D" parent="." unique_id=516373012]
-z_index = -2
-points = PackedVector2Array(0, 0)
-width = 1.0
-default_color = Color(0.7204674, 0.7204675, 0.7204674, 1)
-script = ExtResource("4_o5360")
+explosion_scale = 1.5
