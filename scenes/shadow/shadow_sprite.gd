@@ -4,6 +4,7 @@ extends Sprite2D
 @export var original: Sprite2D:
 	set(value):
 		texture = value.texture;
+		original = value;
 
 @export var color = Color8(0, 0, 0, 78):
 	set(value):
@@ -13,4 +14,6 @@ func _ready():
 	modulate = color;
 
 func _physics_process(_delta: float) -> void:
-	global_position = get_parent().global_position + shadow_offset;
+	print(original);
+	if (original):
+		global_position = original.global_position + shadow_offset;

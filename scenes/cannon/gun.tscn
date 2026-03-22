@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqv4edxvqg8h3"]
+
+[ext_resource type="Texture2D" uid="uid://qw3gcry72fsw" path="res://assets/vehicles/guns/Image-A41 Centurion Mk 1 gun.png" id="1_aleei"]
+[ext_resource type="Script" uid="uid://b7d3yh5cutbim" path="res://scenes/cannon/gun.gd" id="2_n5w4a"]
+
+[node name="Gun" type="Sprite2D" unique_id=1459252975]
+rotation = 1.5707964
+texture = ExtResource("1_aleei")
+script = ExtResource("2_n5w4a")
+dust_scale = 2.0
+
+[node name="DustPoint" type="Marker2D" parent="." unique_id=2062251564]
+position = Vector2(-1.136496e-06, -26)
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=428245212]
+position = Vector2(-8.742278e-07, -20)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy7doi8g6l7dx"]
 
 [ext_resource type="Script" uid="uid://b3bi0a84ebhsv" path="res://scenes/vehicles/tank/controller.gd" id="1_62u4e"]
-[ext_resource type="Texture2D" uid="uid://leumqold8ojd" path="res://assets/vehicles/hulls/Image-A41 Centurion Mk 2.png" id="2_bcqoj"]
+[ext_resource type="Texture2D" uid="uid://cobqh8jch31bo" path="res://assets/vehicles/hulls/Image-A41 Centurion Mk 1.png" id="3_k1o5t"]
 [ext_resource type="PackedScene" uid="uid://beno1u7k3kvbp" path="res://scenes/vehicles/tank/turret.tscn" id="3_ntd2m"]
 [ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/shadow/shadow_sprite.tscn" id="3_t1uj5"]
 [ext_resource type="Script" uid="uid://mgx5qp0vn581" path="res://scenes/vehicles/tank/camera_target.gd" id="4_bcqoj"]
@@ -19,7 +19,7 @@ original = NodePath("../Sprite2D")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397224566]
 z_index = 1
 rotation = 1.5707964
-texture = ExtResource("2_bcqoj")
+texture = ExtResource("3_k1o5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112466741]
 visible = false
@@ -28,7 +28,7 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_pkl2h")
 
 [node name="Turret" parent="." unique_id=1599823858 instance=ExtResource("3_ntd2m")]
-position = Vector2(9, 1)
+position = Vector2(9, 0)
 traverse_speed = 18.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1007930640]

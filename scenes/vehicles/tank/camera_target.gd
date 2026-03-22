@@ -7,4 +7,4 @@ func _process(_delta: float) -> void:
 	else:
 		target_position = Vector2.ZERO;
 		
-	position = lerp(position, target_position, 0.05)
+	position = lerp(position, target_position, 0.04);

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp467buhfbttq"
-path="res://.godot/imported/Profile-A41 Centurion Mk 1.png-1dc6503527ce89c97fe0a98c066b0e92.ctex"
+uid="uid://qw3gcry72fsw"
+path="res://.godot/imported/Image-A41 Centurion Mk 1 gun.png-c9e360c9bf77d1b93096336aa21a466c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vehicles/profiles/Profile-A41 Centurion Mk 1.png"
-dest_files=["res://.godot/imported/Profile-A41 Centurion Mk 1.png-1dc6503527ce89c97fe0a98c066b0e92.ctex"]
+source_file="res://assets/vehicles/guns/Image-A41 Centurion Mk 1 gun.png"
+dest_files=["res://.godot/imported/Image-A41 Centurion Mk 1 gun.png-c9e360c9bf77d1b93096336aa21a466c.ctex"]
 
 [params]
 
