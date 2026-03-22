@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c1t1objsj5oxf"]
+
+[ext_resource type="Script" uid="uid://cp177ec45ab7h" path="res://scenes/misc/shadow_sprite.gd" id="1_w0nyc"]
+
+[node name="ShadowSprite" type="Sprite2D" unique_id=1518839535]
+rotation = 1.5707964
+script = ExtResource("1_w0nyc")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqqxnxx4nx84i"]
+
+[ext_resource type="Script" uid="uid://clqxghj7t57lv" path="res://scenes/vehicle/base_vehicle.gd" id="1_u65k7"]
+[ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="2_5jifg"]
+[ext_resource type="Script" uid="uid://bav784teaaja6" path="res://scenes/vehicle/weapon_controller.gd" id="5_smsx4"]
+
+[node name="BaseVehicle" type="CharacterBody2D" unique_id=2023013389]
+script = ExtResource("1_u65k7")
+
+[node name="ShadowSprite" parent="." unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("2_5jifg")]
+shadow_offset = Vector2(-7, 7)
+original = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397224566]
+z_index = 1
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112466741]
+visible = false
+position = Vector2(0, -0.5)
+rotation = 1.5707964
+
+[node name="WeaponController" type="Node2D" parent="." unique_id=1895722986]
+script = ExtResource("5_smsx4")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbvxkps53osvg"]
+
+[ext_resource type="Script" uid="uid://cpyrs340okh24" path="res://scenes/weapon/solver/base_weapon_solver.gd" id="1_kk4hl"]
+
+[node name="BaseWeaponSolver" type="Node2D" unique_id=1034142950]
+script = ExtResource("1_kk4hl")

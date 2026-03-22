@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ProjectileData" format=3 uid="uid://clitg5lvk5okw"]
+
+[ext_resource type="Script" uid="uid://cjt1u0kael2ut" path="res://resources/projectile_data.gd" id="1_tp8ho"]
+[ext_resource type="PackedScene" uid="uid://cd10s8cldtw24" path="res://scenes/shell/shell.tscn" id="2_4jipu"]
+
+[resource]
+script = ExtResource("1_tp8ho")
+name = "17-Pounder High Explosive"
+muzzle_velocity = 180.0
+shell_scene = ExtResource("2_4jipu")
+metadata/_custom_type_script = "uid://cjt1u0kael2ut"

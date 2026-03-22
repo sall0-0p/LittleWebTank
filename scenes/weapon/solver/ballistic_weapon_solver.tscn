@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dypyyj8f57ikf"]
+
+[ext_resource type="PackedScene" uid="uid://cbvxkps53osvg" path="res://scenes/weapon/solver/base_weapon_solver.tscn" id="1_03yqj"]
+[ext_resource type="Script" uid="uid://be4wp3hmneep" path="res://scenes/weapon/solver/ballistic_weapon_solver.gd" id="2_pkici"]
+
+[node name="BallisticWeaponSolver" unique_id=1034142950 instance=ExtResource("1_03yqj")]
+script = ExtResource("2_pkici")

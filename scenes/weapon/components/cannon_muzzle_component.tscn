@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cmm3tcde23kik"]
+
+[ext_resource type="PackedScene" uid="uid://bhlj8kfo2j3cg" path="res://scenes/weapon/components/base_component.tscn" id="1_5m0l2"]
+[ext_resource type="Script" uid="uid://cvnoy5ksjbfss" path="res://scenes/weapon/components/cannon_muzzle_component.gd" id="2_8582x"]
+
+[node name="CannonMuzzleComponent" unique_id=1022626438 instance=ExtResource("1_5m0l2")]
+script = ExtResource("2_8582x")

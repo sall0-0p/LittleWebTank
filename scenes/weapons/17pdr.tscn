@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://caj0xd32ab3ji"]
+
+[ext_resource type="PackedScene" uid="uid://cpd1veqey5xun" path="res://scenes/weapon/base_weapon.tscn" id="1_xnmex"]
+[ext_resource type="Texture2D" uid="uid://qw3gcry72fsw" path="res://assets/vehicles/guns/Image-A41 Centurion Mk 1 gun.png" id="2_6tdrt"]
+[ext_resource type="PackedScene" uid="uid://dypyyj8f57ikf" path="res://scenes/weapon/solver/ballistic_weapon_solver.tscn" id="3_h38q6"]
+[ext_resource type="PackedScene" uid="uid://cmm3tcde23kik" path="res://scenes/weapon/components/cannon_muzzle_component.tscn" id="4_h38q6"]
+[ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="5_acb4u"]
+
+[node name="17pdr" unique_id=1459252975 node_paths=PackedStringArray("solver") instance=ExtResource("1_xnmex")]
+texture = ExtResource("2_6tdrt")
+solver = NodePath("BallisticWeaponSolver")
+
+[node name="BallisticWeaponSolver" parent="." index="0" unique_id=1034142950 instance=ExtResource("3_h38q6")]
+
+[node name="CannonMuzzleComponent" parent="." index="1" unique_id=1022626438 node_paths=PackedStringArray("weapon") instance=ExtResource("4_h38q6")]
+weapon = NodePath("..")
+
+[node name="ShadowSprite" parent="." index="2" unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("5_acb4u")]
+z_index = -1
+rotation = 0.0
+original = NodePath("..")

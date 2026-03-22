@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dqpn27kyghw3x"]
+
+[ext_resource type="Script" uid="uid://bfmqb1b3rmovc" path="res://scenes/vehicle/brains/player/player_brain.gd" id="1_8tvlx"]
+[ext_resource type="Script" uid="uid://bl0ry1lablln3" path="res://scenes/vehicle/brains/player/reticle_mouse.gd" id="2_5y85y"]
+[ext_resource type="Texture2D" uid="uid://bdw6cuw0w10uf" path="res://assets/hud/reticle-inner.png" id="2_l8tca"]
+[ext_resource type="Texture2D" uid="uid://wwbrbaeekl4c" path="res://assets/hud/reticle-outer.png" id="4_4wwd3"]
+[ext_resource type="Script" uid="uid://dxt38ptdg2oe6" path="res://scenes/vehicle/brains/player/reticle_impact.gd" id="5_ggwbj"]
+[ext_resource type="Script" uid="uid://mgx5qp0vn581" path="res://scenes/vehicle/brains/camera_target.gd" id="6_ggwbj"]
+[ext_resource type="Script" uid="uid://pr8th151kndd" path="res://scenes/vehicle/brains/player/aiming_hud.gd" id="7_0kejm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_871qn"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="PlayerBrain" type="Node2D" unique_id=482175974]
+script = ExtResource("1_8tvlx")
+
+[node name="ReticleMouse" type="Sprite2D" parent="." unique_id=780348123]
+visible = false
+z_index = 200
+texture = ExtResource("2_l8tca")
+script = ExtResource("2_5y85y")
+
+[node name="ReticleImpact" type="Sprite2D" parent="." unique_id=900857139]
+visible = false
+z_index = 200
+texture = ExtResource("4_4wwd3")
+script = ExtResource("5_ggwbj")
+
+[node name="CameraMarker" type="Marker2D" parent="." unique_id=1059169133]
+position = Vector2(9, 1)
+script = ExtResource("6_ggwbj")
+
+[node name="Camera2D" type="Camera2D" parent="CameraMarker" unique_id=9118583]
+zoom = Vector2(1.5, 1.5)
+rotation_smoothing_enabled = true
+
+[node name="AimingHUD" type="Node2D" parent="." unique_id=1214204720]
+z_index = 200
+script = ExtResource("7_0kejm")
+
+[node name="Label" type="Label" parent="AimingHUD" unique_id=2101428599]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_871qn")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://o8n3oc17gba2"]
+
+[ext_resource type="PackedScene" uid="uid://df7m4e055d4c5" path="res://scenes/vehicle/base_turret.tscn" id="1_7iicj"]
+[ext_resource type="Texture2D" uid="uid://d21yg657x5qo0" path="res://assets/vehicles/turrets/Image-A41 Centurion Mk 1 turret.png" id="2_agl3s"]
+[ext_resource type="PackedScene" uid="uid://k7a5y5g76vh8" path="res://scenes/vehicle/gun_mantlet.tscn" id="3_4iw84"]
+[ext_resource type="PackedScene" uid="uid://caj0xd32ab3ji" path="res://scenes/weapons/17pdr.tscn" id="4_8excu"]
+
+[node name="CenturionTurret" unique_id=1065044381 instance=ExtResource("1_7iicj")]
+
+[node name="Sprite2D" parent="." index="1" unique_id=254579714]
+position = Vector2(21, 0)
+texture = ExtResource("2_agl3s")
+
+[node name="GunMantlet" parent="." index="2" unique_id=1215331377 instance=ExtResource("3_4iw84")]
+
+[node name="17pdr" parent="GunMantlet" index="0" unique_id=1459252975 instance=ExtResource("4_8excu")]
+position = Vector2(45, 0.5)

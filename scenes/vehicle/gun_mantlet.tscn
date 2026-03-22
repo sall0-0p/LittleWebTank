@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://k7a5y5g76vh8"]
+
+[ext_resource type="Script" uid="uid://nfn7ey2ydq8c" path="res://scenes/vehicle/gun_mantlet.gd" id="1_l0uhg"]
+
+[node name="GunMantlet" type="Node2D" unique_id=1215331377]
+script = ExtResource("1_l0uhg")

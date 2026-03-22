@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://df7m4e055d4c5"]
+
+[ext_resource type="Script" uid="uid://km2k2ttumovi" path="res://scenes/vehicle/base_turret.gd" id="1_55wbe"]
+[ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="2_a8ylk"]
+
+[node name="BaseTurret" type="Node2D" unique_id=1065044381]
+z_index = 2
+script = ExtResource("1_55wbe")
+
+[node name="ShadowSpriteTurret" parent="." unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("2_a8ylk")]
+position = Vector2(22.5, -0.5)
+original = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=254579714]
+position = Vector2(22.5, -0.5)
+rotation = 1.5707964
