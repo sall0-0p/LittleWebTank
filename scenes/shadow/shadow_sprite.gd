@@ -14,6 +14,5 @@ func _ready():
 	modulate = color;
 
 func _physics_process(_delta: float) -> void:
-	print(original);
 	if (original):
 		global_position = original.global_position + shadow_offset;

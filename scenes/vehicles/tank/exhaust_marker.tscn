@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ckc05otboo3y1"]
+
+[ext_resource type="Script" uid="uid://b1ows26gphl0d" path="res://scenes/vehicles/tank/exhaust_marker.gd" id="1_xsxjw"]
+[ext_resource type="Texture2D" uid="uid://0dpahu6qhafb" path="res://assets/effects/exhaust.png" id="2_ekk84"]
+
+[sub_resource type="Curve" id="Curve_t1uj5"]
+_data = [Vector2(0, 0.4436519), 0.0, 0.0, 0, 0, Vector2(0.4972067, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7063719), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_k1o5t"]
+colors = PackedColorArray(0.6745098, 0.6745098, 0.6745098, 0.32941177, 1, 1, 1, 0)
+
+[node name="ExhaustMarker" type="Marker2D" unique_id=1467567748]
+script = ExtResource("1_xsxjw")
+
+[node name="Emmissions" type="CPUParticles2D" parent="." unique_id=1720570212]
+position = Vector2(-7, 0)
+scale = Vector2(31.33279, 52208.113)
+amount = 25
+texture = ExtResource("2_ekk84")
+lifetime = 0.09999999999999999
+speed_scale = 0.2
+randomness = 0.2
+lifetime_randomness = 0.05
+spread = 90.0
+gravity = Vector2(0, 0)
+damping_min = 1.0
+damping_max = 4.0
+scale_amount_curve = SubResource("Curve_t1uj5")
+color_ramp = SubResource("Gradient_k1o5t")
