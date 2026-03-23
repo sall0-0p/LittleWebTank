@@ -1,6 +1,6 @@
 extends Node2D
 
-const explosion_scene = preload("res://scenes/shell/explosion/he_explosion.tscn");
+const explosion_scene = preload("res://scenes/projectile/explosion/he_explosion.tscn");
 
 func explode(explosion_scale):
 	var explosion = explosion_scene.instantiate();

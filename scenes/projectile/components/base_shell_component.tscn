@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ci53eshnk3c7k"]
+
+[ext_resource type="Script" uid="uid://dhbj7il11s2ac" path="res://scenes/projectile/components/base_shell_component.gd" id="1_d5o8p"]
+
+[node name="BaseShellComponent" type="Node2D" unique_id=1484492782]
+script = ExtResource("1_d5o8p")

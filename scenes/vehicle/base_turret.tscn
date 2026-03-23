@@ -7,10 +7,9 @@
 z_index = 2
 script = ExtResource("1_55wbe")
 
-[node name="ShadowSpriteTurret" parent="." unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("2_a8ylk")]
-position = Vector2(22.5, -0.5)
-original = NodePath("../Sprite2D")
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=254579714]
 position = Vector2(22.5, -0.5)
 rotation = 1.5707964
+
+[node name="ShadowSprite" parent="Sprite2D" unique_id=1518839535 instance=ExtResource("2_a8ylk")]
+rotation = 0.0

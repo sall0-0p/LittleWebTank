@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ProjectileData" format=3 uid="uid://clitg5lvk5okw"]
 
 [ext_resource type="Script" uid="uid://cjt1u0kael2ut" path="res://resources/projectile_data.gd" id="1_tp8ho"]
-[ext_resource type="PackedScene" uid="uid://cd10s8cldtw24" path="res://scenes/shell/shell.tscn" id="2_4jipu"]
+[ext_resource type="PackedScene" uid="uid://bxrk14sw7qabr" path="res://scenes/projectiles/shell_he.tscn" id="2_4jipu"]
 
 [resource]
 script = ExtResource("1_tp8ho")

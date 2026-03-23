@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bjis5t1qb5uq1"]
+
+[ext_resource type="PackedScene" uid="uid://ci53eshnk3c7k" path="res://scenes/projectile/components/base_shell_component.tscn" id="1_kk27g"]
+
+[node name="BaseShellFlightComponent" unique_id=1484492782 instance=ExtResource("1_kk27g")]

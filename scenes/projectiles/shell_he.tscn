@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bxrk14sw7qabr"]
+
+[ext_resource type="PackedScene" uid="uid://cmdu5bv824ruf" path="res://scenes/projectile/base_shell.tscn" id="1_tqntc"]
+[ext_resource type="Texture2D" uid="uid://dlvn8gc8rkow0" path="res://assets/effects/shots.png" id="2_136ix"]
+[ext_resource type="PackedScene" uid="uid://dwborgyydlix5" path="res://scenes/projectiles/components/fuzes/impact_fuze_component.tscn" id="3_136ix"]
+[ext_resource type="PackedScene" uid="uid://c2y11v7jdwt6i" path="res://scenes/projectiles/components/warheads/he_warhead_component.tscn" id="4_ppnwd"]
+[ext_resource type="PackedScene" uid="uid://cgvaakxev07hi" path="res://scenes/projectiles/components/movements/ballistic_flight_component.tscn" id="5_136ix"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g86bi"]
+size = Vector2(66, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppnwd"]
+atlas = ExtResource("2_136ix")
+region = Rect2(9, 61, 6, 66)
+
+[node name="ShellHE" unique_id=1610956265 node_paths=PackedStringArray("fuze_component", "warhead_component", "flight_component") instance=ExtResource("1_tqntc")]
+z_index = 5
+fuze_component = NodePath("ImpactFuzeComponent")
+warhead_component = NodePath("HEWarheadComponent")
+flight_component = NodePath("BallisticFlightComponent")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=267557469]
+shape = SubResource("RectangleShape2D_g86bi")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1056310083]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_ppnwd")
+
+[node name="ImpactFuzeComponent" parent="." index="2" unique_id=1484492782 node_paths=PackedStringArray("flight_component") instance=ExtResource("3_136ix")]
+flight_component = NodePath("../BallisticFlightComponent")
+
+[node name="HEWarheadComponent" parent="." index="3" unique_id=506000925 instance=ExtResource("4_ppnwd")]
+
+[node name="BallisticFlightComponent" parent="." index="4" unique_id=568646173 node_paths=PackedStringArray("main_sprite") instance=ExtResource("5_136ix")]
+main_sprite = NodePath("../Sprite2D")

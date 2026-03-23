@@ -24,7 +24,6 @@ weapon = NodePath("..")
 [node name="CannonRecoilComponent" parent="." index="3" unique_id=1779563052 node_paths=PackedStringArray("weapon") instance=ExtResource("6_48mi0")]
 weapon = NodePath("..")
 
-[node name="ShadowSprite" parent="." index="4" unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("5_acb4u")]
+[node name="ShadowSprite" parent="." index="4" unique_id=1518839535 instance=ExtResource("5_acb4u")]
 z_index = -1
 rotation = 0.0
-original = NodePath("..")

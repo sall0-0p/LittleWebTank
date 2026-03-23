@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://k3jwcvv48mcj"]
 
 [ext_resource type="Texture2D" uid="uid://68ybmvxkaw3b" path="res://assets/effects/explosion.png" id="1_x8d0j"]
-[ext_resource type="Script" uid="uid://bv2ddvpft82vp" path="res://scenes/shell/explosion/he_explosion.gd" id="2_cp0uo"]
+[ext_resource type="Script" uid="uid://bv2ddvpft82vp" path="res://scenes/projectile/explosion/he_explosion.gd" id="2_cp0uo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j13u1"]
 atlas = ExtResource("1_x8d0j")
@@ -460,6 +460,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="AnimatedSprite2D" unique_id=1686768115]
+z_index = 6
 sprite_frames = SubResource("SpriteFrames_346ef")
 script = ExtResource("2_cp0uo")
 
