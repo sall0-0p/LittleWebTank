@@ -4,7 +4,10 @@ enum DamageLevel { NORMAL, DAMAGED, RUBBLE }
 
 @export var show_interior: bool:
 	set(value):
-		$Building.visible = not value;
+		if (damage_level != DamageLevel.RUBBLE):
+			$Building.visible = not value;
+		else:
+			$Building.visible = true;
 		show_interior = value;
 			
 @export var damage_level: DamageLevel = DamageLevel.NORMAL:
@@ -25,6 +28,7 @@ enum DamageLevel { NORMAL, DAMAGED, RUBBLE }
 var structural_integrity = max_structural_integrity;
 
 func _ready() -> void:
+	$Interior.visible = true;
 	$Building.visible = not show_interior;
 	_set_damage(damage_level);
 
@@ -47,16 +51,18 @@ func handle_hit(shape_index: int):
 # helpers
 func _set_damage(damage: DamageLevel):
 	z_index = 10;
-	_set_collision_disabled(false);
 	if (damage == DamageLevel.NORMAL):
+		$Building.visible = not show_interior;
 		$Building.region_rect = Rect2(0, 0, 96, 96);
 		$Interior.region_rect = Rect2(96, 0, 96, 96);
 	if (damage == DamageLevel.DAMAGED):
+		$Building.visible = not show_interior;
 		$Building.region_rect = Rect2(0, 96, 96, 96);
 		$Interior.region_rect = Rect2(96, 0, 96, 96);
 	if (damage == DamageLevel.RUBBLE):
 		$Building.region_rect = Rect2(96, 96, 96, 96);
 		$Interior.region_rect = Rect2(96, 96, 96, 96);
+		$Building.visible = true;
 		z_index = -10;
 		_set_collision_disabled(true);
 
@@ -64,6 +70,3 @@ func _set_collision_disabled(is_disabled: bool):
 	for child in get_children():
 		if (child is CollisionShape2D):
 			child.set_deferred("disabled", is_disabled);
-
-func _set_region_rect(part: Sprite2D, rect: Rect2):
-	part.region_rect = rect;

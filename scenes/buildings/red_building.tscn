@@ -16,6 +16,9 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iyakf"]
+load_path = "res://.godot/imported/House Red Tiles 1.png-5ad9a956e583421e67bf85872ffc5864.ctex"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_520sg"]
 size = Vector2(2.8571386, 7.4285774)
 
@@ -71,7 +74,7 @@ size = Vector2(9.714285, 2.4285645)
 script = SubResource("GDScript_iyakf")
 
 [node name="Interior" parent="." index="0" unique_id=778038910]
-texture = ExtResource("2_pl0pd")
+texture = SubResource("CompressedTexture2D_iyakf")
 
 [node name="Building" parent="." index="1" unique_id=1492408829]
 texture = ExtResource("2_pl0pd")
@@ -194,3 +197,9 @@ visible = false
 position = Vector2(-27.714285, 32.857136)
 scale = Vector2(0.9999993, 0.9999993)
 shape = SubResource("RectangleShape2D_ukxuj")
+
+[node name="BuildingArea" parent="." index="22" unique_id=1994222299]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingArea" index="0" unique_id=2013793826]
+polygon = PackedVector2Array(-29.42857, -36.285713, -29.714283, -9.999999, -33.142857, -9.999999, -33.42857, 5.1428566, -30.285713, 7.4285707, -30.857141, 33.142857, 33.999996, 33.42857, 34.571426, 9.142857, 16.857141, 8.285714, 18.571428, -36.285713)

@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bqqxnxx4nx84i" path="res://scenes/vehicle/base_vehicle.tscn" id="1_lg3p6"]
 [ext_resource type="PackedScene" uid="uid://b103p5k1yc3kj" path="res://scenes/vehicle/movement/tracked_movement_component.tscn" id="2_2t6jl"]
 [ext_resource type="Texture2D" uid="uid://cobqh8jch31bo" path="res://assets/vehicles/hulls/Image-A41 Centurion Mk 1.png" id="2_vb5ff"]
-[ext_resource type="PackedScene" uid="uid://dqpn27kyghw3x" path="res://scenes/vehicle/brains/player/player_brain.tscn" id="4_ph4vf"]
 [ext_resource type="PackedScene" uid="uid://o8n3oc17gba2" path="res://scenes/vehicles/centurion/centurion_turret.tscn" id="5_qvma3"]
 [ext_resource type="Resource" uid="uid://clitg5lvk5okw" path="res://data/ammo/17pdr_he.tres" id="6_r271k"]
 [ext_resource type="PackedScene" uid="uid://ckc05otboo3y1" path="res://scenes/vehicle/exhaust_marker.tscn" id="7_qadj6"]
@@ -29,11 +28,7 @@ position = Vector2(-13.154839, -25.465137)
 acceleration = 2.5
 turn_speed = 25.0
 
-[node name="PlayerBrain" parent="." index="4" unique_id=482175974 node_paths=PackedStringArray("movement_component", "weapon_controller") instance=ExtResource("4_ph4vf")]
-movement_component = NodePath("../TrackedVehicleControls")
-weapon_controller = NodePath("../WeaponController")
-
-[node name="CenturionTurret" parent="." index="5" unique_id=1065044381 instance=ExtResource("5_qvma3")]
+[node name="CenturionTurret" parent="." index="4" unique_id=1065044381 instance=ExtResource("5_qvma3")]
 position = Vector2(10, 0)
 traverse_speed = 15.0
 
@@ -43,10 +38,10 @@ turret = NodePath("../..")
 trunnion_height = 2.3
 ammo_type = ExtResource("6_r271k")
 
-[node name="ExhaustMarker" parent="." index="6" unique_id=1467567748 instance=ExtResource("7_qadj6")]
+[node name="ExhaustMarker" parent="." index="5" unique_id=1467567748 instance=ExtResource("7_qadj6")]
 position = Vector2(-54, 11)
 
-[node name="ExhaustMarker2" parent="." index="7" unique_id=1278902408 instance=ExtResource("7_qadj6")]
+[node name="ExhaustMarker2" parent="." index="6" unique_id=1278902408 instance=ExtResource("7_qadj6")]
 position = Vector2(-54, -10)
 
 [editable path="CenturionTurret"]

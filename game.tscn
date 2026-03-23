@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://blxud1fka4jsy"]
 
 [ext_resource type="Texture2D" uid="uid://dh1gbyior48io" path="res://assets/grid/grid-no-border.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://dqpn27kyghw3x" path="res://scenes/vehicle/brains/player/player_brain.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://wa6we58itl34" path="res://scenes/buildings/red_building.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://y1xoc1jxx3v0" path="res://scenes/vehicles/centurion/centurion.tscn" id="3_feb5d"]
 
@@ -17,11 +18,16 @@ sources/0 = SubResource("TileSetAtlasSource_feb5d")
 position = Vector2(1, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=220598445]
+z_index = -1000
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAADAAYAAAAAAAAAAAACAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_fc0e3")
 
 [node name="Centurion" parent="." unique_id=2023013389 instance=ExtResource("3_feb5d")]
 position = Vector2(84, 47)
+
+[node name="PlayerBrain" parent="Centurion" unique_id=482175974 node_paths=PackedStringArray("movement_component", "weapon_controller") instance=ExtResource("3_7jktm")]
+movement_component = NodePath("../TrackedVehicleControls")
+weapon_controller = NodePath("../WeaponController")
 
 [node name="GlobalProjectiles" type="Node" parent="." unique_id=726917403]
 
@@ -32,20 +38,28 @@ height = 0.2
 
 [node name="red_building" parent="." unique_id=115956234 instance=ExtResource("3_fc0e3")]
 position = Vector2(947, 278)
+collision_layer = 1
 
 [node name="red_building2" parent="." unique_id=1386119227 instance=ExtResource("3_fc0e3")]
 position = Vector2(943.99994, 551.00006)
+collision_layer = 1
 damage_level = 1
 
 [node name="red_building3" parent="." unique_id=1051655213 instance=ExtResource("3_fc0e3")]
 position = Vector2(504, 540)
 rotation = 2.4939435
+collision_layer = 1
 
 [node name="red_building4" parent="." unique_id=2090290023 instance=ExtResource("3_fc0e3")]
 position = Vector2(574, 848)
 rotation = 3.1296937
+collision_layer = 1
 
 [node name="red_building5" parent="." unique_id=84064331 instance=ExtResource("3_fc0e3")]
 position = Vector2(170.00002, 454)
 rotation = 1.5638524
+collision_layer = 1
 damage_level = 2
+
+[editable path="Centurion"]
+[editable path="Centurion/CenturionTurret"]
