@@ -1,6 +1,6 @@
 extends BaseShellComponent
 class_name BaseFuzeComponent
-signal detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float)
+signal detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int)
 
 @export var flight_component: BaseShellFlightComponent;
 
@@ -13,5 +13,5 @@ func _ready() -> void:
 func init(ammo_type: ProjectileData):
 	pass;
 
-func _on_shell_impact(hit_object: Node2D, impact_point: Vector2, impact_normal: Vector2, pitch: float):
+func _on_shell_impact(hit_object: Node2D, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int):
 	pass;

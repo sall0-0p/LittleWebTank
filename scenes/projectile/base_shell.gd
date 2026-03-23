@@ -21,12 +21,12 @@ func _ready() -> void:
 	if fuze_component:
 		fuze_component.detonate.connect(_on_detonate);
 
-func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float):
+func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int):
 	if flight_component:
 		flight_component.queue_free();
 	
 	if warhead_component:
-		warhead_component.detonate(hit_object, impact_point, impact_normal, pitch, current_velocity);
+		warhead_component.detonate(hit_object, impact_point, impact_normal, pitch, current_velocity, shape_index);
 		
 	$Sprite2D.hide();
 	

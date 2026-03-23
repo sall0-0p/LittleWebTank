@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://blxud1fka4jsy"]
 
 [ext_resource type="Texture2D" uid="uid://dh1gbyior48io" path="res://assets/grid/grid-no-border.png" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://dcycueswf4p5i" path="res://scenes/buildings/l-red-building.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://wa6we58itl34" path="res://scenes/buildings/red_building.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://y1xoc1jxx3v0" path="res://scenes/vehicles/centurion/centurion.tscn" id="3_feb5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
@@ -30,19 +30,22 @@ visible = false
 energy = 0.2
 height = 0.2
 
-[node name="LRedBuilding" parent="." unique_id=115956234 instance=ExtResource("3_fc0e3")]
-position = Vector2(568, 722)
-rotation = 0.7853982
-damage_level = 2
+[node name="red_building" parent="." unique_id=115956234 instance=ExtResource("3_fc0e3")]
+position = Vector2(947, 278)
 
-[node name="LRedBuilding2" parent="." unique_id=1946595289 instance=ExtResource("3_fc0e3")]
-position = Vector2(767, 516)
-rotation = 0.7853982
+[node name="red_building2" parent="." unique_id=1386119227 instance=ExtResource("3_fc0e3")]
+position = Vector2(943.99994, 551.00006)
 damage_level = 1
 
-[node name="LRedBuilding4" parent="." unique_id=56416280 instance=ExtResource("3_fc0e3")]
-position = Vector2(907, 179)
-rotation = -0.03416362
+[node name="red_building3" parent="." unique_id=1051655213 instance=ExtResource("3_fc0e3")]
+position = Vector2(504, 540)
+rotation = 2.4939435
 
-[node name="LRedBuilding3" parent="." unique_id=1269107254 instance=ExtResource("3_fc0e3")]
-position = Vector2(188, 473.9999)
+[node name="red_building4" parent="." unique_id=2090290023 instance=ExtResource("3_fc0e3")]
+position = Vector2(574, 848)
+rotation = 3.1296937
+
+[node name="red_building5" parent="." unique_id=84064331 instance=ExtResource("3_fc0e3")]
+position = Vector2(170.00002, 454)
+rotation = 1.5638524
+damage_level = 2

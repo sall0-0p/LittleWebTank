@@ -97,7 +97,7 @@ func _physics_process(delta: float) -> void:
 		altitude = altitude + (v_step * altitude_collision_at);
 		
 		# emit signal
-		impact_detected.emit(null, get_parent().global_position, Vector2.ZERO, pitch);
+		impact_detected.emit(null, get_parent().global_position, Vector2.ZERO, pitch, -1);
 		return;
 		
 	if (to_run == "ray"):
@@ -105,7 +105,7 @@ func _physics_process(delta: float) -> void:
 		altitude = altitude + (v_step * raycast_collision_at);
 		
 		# emit signal
-		impact_detected.emit(result.collider, result.position, result.normal, pitch);
+		impact_detected.emit(result.collider, result.position, result.normal, pitch, result.shape);
 		return;
 	
 	get_parent().global_position = target_position;
