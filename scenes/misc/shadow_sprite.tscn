@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://cp177ec45ab7h" path="res://scenes/misc/shadow_sprite.gd" id="1_w0nyc"]
 
 [node name="ShadowSprite" type="Sprite2D" unique_id=1518839535]
-show_behind_parent = true
+z_index = -1
 rotation = 1.5707964
 script = ExtResource("1_w0nyc")

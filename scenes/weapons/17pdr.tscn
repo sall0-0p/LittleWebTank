@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="5_acb4u"]
 [ext_resource type="PackedScene" uid="uid://buodv66aub4oh" path="res://scenes/weapon/components/cannon_dust_component.tscn" id="5_d0fm4"]
 [ext_resource type="PackedScene" uid="uid://dy446dx77uy1q" path="res://scenes/weapon/components/cannon_recoil_component.tscn" id="6_48mi0"]
+[ext_resource type="AudioStream" uid="uid://d0obhca8jxurl" path="res://assets/sound/gun/shot/17pdr.mp3" id="8_fpod5"]
+[ext_resource type="AudioStream" uid="uid://cxc4m8hy0d1fp" path="res://assets/sound/gun/reload/tankgun_r04.mp3" id="9_i2jmi"]
 
 [node name="17pdr" unique_id=1459252975 node_paths=PackedStringArray("solver") instance=ExtResource("1_xnmex")]
 texture = ExtResource("2_6tdrt")
@@ -25,5 +27,13 @@ weapon = NodePath("..")
 weapon = NodePath("..")
 
 [node name="ShadowSprite" parent="." index="4" unique_id=1518839535 instance=ExtResource("5_acb4u")]
-z_index = -1
 rotation = 0.0
+
+[node name="ShootingAudio" parent="." index="5" unique_id=1459614263]
+stream = ExtResource("8_fpod5")
+volume_db = 2.0
+bus = &"SFX"
+
+[node name="ReloadingAudio" parent="." index="6" unique_id=748846501]
+stream = ExtResource("9_i2jmi")
+bus = &"SFX"

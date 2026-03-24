@@ -21,11 +21,12 @@ z_index = 200
 texture = ExtResource("2_l8tca")
 script = ExtResource("2_5y85y")
 
-[node name="ReticleImpact" type="Sprite2D" parent="." unique_id=900857139]
+[node name="ReticleImpact" type="Sprite2D" parent="." unique_id=900857139 node_paths=PackedStringArray("player_brain")]
 visible = false
 z_index = 200
 texture = ExtResource("4_4wwd3")
 script = ExtResource("5_ggwbj")
+player_brain = NodePath("..")
 
 [node name="CameraMarker" type="Marker2D" parent="." unique_id=1059169133]
 position = Vector2(9, 1)
@@ -35,9 +36,10 @@ script = ExtResource("6_ggwbj")
 zoom = Vector2(1.5, 1.5)
 rotation_smoothing_enabled = true
 
-[node name="AimingHUD" type="Node2D" parent="." unique_id=1214204720]
+[node name="AimingHUD" type="Node2D" parent="." unique_id=1214204720 node_paths=PackedStringArray("player_brain")]
 z_index = 200
 script = ExtResource("7_0kejm")
+player_brain = NodePath("..")
 
 [node name="Label" type="Label" parent="AimingHUD" unique_id=2101428599]
 offset_right = 40.0

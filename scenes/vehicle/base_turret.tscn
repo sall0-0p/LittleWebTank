@@ -13,3 +13,5 @@ rotation = 1.5707964
 
 [node name="ShadowSprite" parent="Sprite2D" unique_id=1518839535 instance=ExtResource("2_a8ylk")]
 rotation = 0.0
+
+[node name="TurretTraverseAudio" type="AudioStreamPlayer2D" parent="." unique_id=1851553591]

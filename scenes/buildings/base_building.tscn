@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b385h4avt0jcx"]
 
 [ext_resource type="Script" uid="uid://cm5coqhre8bf5" path="res://scenes/buildings/base_building.gd" id="1_exp6l"]
+[ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="2_exp6l"]
+[ext_resource type="AudioStream" uid="uid://j4b27rljy3r6" path="res://assets/sound/stone_breaking.mp3" id="3_fc50v"]
 
 [node name="BaseBuilding" type="StaticBody2D" unique_id=115956234]
 scale = Vector2(3.5, 3.5)
@@ -15,6 +17,12 @@ scale = Vector2(0.9999999, 0.9999999)
 region_enabled = true
 region_rect = Rect2(96, 0, 96, 96)
 
+[node name="ShadowSprite" parent="." unique_id=1518839535 node_paths=PackedStringArray("target") instance=ExtResource("2_exp6l")]
+z_index = -11
+rotation = 1.3788102
+scale = Vector2(0.9999998, 0.9999998)
+target = NodePath("../Building")
+
 [node name="Building" type="Sprite2D" parent="." unique_id=1492408829]
 z_index = 30
 z_as_relative = false
@@ -23,3 +31,10 @@ region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
 [node name="BuildingArea" type="Area2D" parent="." unique_id=1994222299]
+
+[node name="WallChashingAudio" type="AudioStreamPlayer2D" parent="." unique_id=571046972]
+stream = ExtResource("3_fc50v")
+bus = &"SFX"
+
+[connection signal="body_entered" from="BuildingArea" to="." method="_on_building_area_body_entered"]
+[connection signal="body_exited" from="BuildingArea" to="." method="_on_building_area_body_exited"]

@@ -8,4 +8,5 @@ class_name ProjectileData
 @export var drag_coefficient: float = 0.3;
 @export var aiming_tolerance: float = 1.0;
 @export var arming_distance: float = 3;
+@export var base_reload_time: float = 4.5;
 @export var shell_scene: PackedScene;

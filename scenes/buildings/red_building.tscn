@@ -3,19 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b385h4avt0jcx" path="res://scenes/buildings/base_building.tscn" id="1_iyakf"]
 [ext_resource type="Texture2D" uid="uid://f7j3uygao3vd" path="res://assets/buildings/House Red Tiles 1.png" id="2_pl0pd"]
 
-[sub_resource type="GDScript" id="GDScript_iyakf"]
-script/source = "extends BaseBuilding
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iyakf"]
 load_path = "res://.godot/imported/House Red Tiles 1.png-5ad9a956e583421e67bf85872ffc5864.ctex"
 
@@ -71,13 +58,9 @@ size = Vector2(14.285724, 2.4285645)
 size = Vector2(9.714285, 2.4285645)
 
 [node name="red_building" unique_id=115956234 instance=ExtResource("1_iyakf")]
-script = SubResource("GDScript_iyakf")
 
 [node name="Interior" parent="." index="0" unique_id=778038910]
 texture = SubResource("CompressedTexture2D_iyakf")
-
-[node name="Building" parent="." index="1" unique_id=1492408829]
-texture = ExtResource("2_pl0pd")
 
 [node name="BaseBox" type="CollisionPolygon2D" parent="." index="2" unique_id=195596506]
 visible = false
@@ -198,7 +181,10 @@ position = Vector2(-27.714285, 32.857136)
 scale = Vector2(0.9999993, 0.9999993)
 shape = SubResource("RectangleShape2D_ukxuj")
 
-[node name="BuildingArea" parent="." index="22" unique_id=1994222299]
+[node name="Building" parent="." index="22" unique_id=1492408829]
+texture = ExtResource("2_pl0pd")
+
+[node name="BuildingArea" parent="." index="23" unique_id=1994222299]
 collision_layer = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BuildingArea" index="0" unique_id=2013793826]

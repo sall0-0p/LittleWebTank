@@ -6,3 +6,12 @@
 z_index = 2
 rotation = 1.5707964
 script = ExtResource("2_8qoo6")
+
+[node name="ShootingAudio" type="AudioStreamPlayer2D" parent="." unique_id=1459614263]
+
+[node name="ReloadingAudio" type="AudioStreamPlayer2D" parent="." unique_id=748846501]
+
+[node name="Timer" type="Timer" parent="." unique_id=2102447389]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

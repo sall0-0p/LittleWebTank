@@ -1,4 +1,4 @@
-extends BaseMovementComponent
+extends BaseMovementController
 
 const ART_SCALE_FACTOR := 15.0;
 
@@ -29,8 +29,8 @@ func _physics_process(delta: float) -> void:
 	# change rotation direction if reversing
 	if (target_speed < 0):
 		rot *= -1;
-	
-	get_parent().rotation += rot;
+
+	hull.rotation += rot;
 	
 	# accelerate / decelerate
 	var forward = Vector2.from_angle(get_parent().rotation);
@@ -42,6 +42,6 @@ func _physics_process(delta: float) -> void:
 		step_amount = friction * delta;
 	
 	current_speed = move_toward(current_speed, target_speed, step_amount);
-	get_parent().velocity = (current_speed * ART_SCALE_FACTOR) * forward;
+	hull.velocity = (current_speed * ART_SCALE_FACTOR) * forward;
 	
-	get_parent().move_and_slide();
+	hull.move_and_slide();

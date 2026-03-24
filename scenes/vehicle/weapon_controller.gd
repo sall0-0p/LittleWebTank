@@ -2,7 +2,7 @@ extends Node2D
 class_name WeaponController
 signal weapon_changed
 
-@export var movement_controller: BaseMovementComponent;
+@export var movement_controller: BaseMovementController;
 @export var available_weapons: Array[BaseWeapon] = [];
 
 var _active_weapon_index: int = 0;
