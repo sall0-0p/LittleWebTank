@@ -8,7 +8,6 @@ class_name VehicleAudioController
 var _throttle: float = 0.0;
 func _ready():
 	$EngineSound.play();
-	$EngineSound.stream.loop = true;
 
 func _process(delta: float) -> void:
 	var pitch_difference = engine_pitch_max - engine_pitch_min;
