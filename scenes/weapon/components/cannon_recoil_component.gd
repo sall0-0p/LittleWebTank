@@ -12,7 +12,6 @@ func _ready():
 	
 func _on_weapon_fired():
 	var tween = create_tween();
-	print(default_position);
 	tween.tween_property(get_parent(), "position:x", default_position.x - recoil_level, recoil_speed).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT);
 	tween.tween_interval(recovery_delay);
 	tween.tween_property(get_parent(), "position:x", default_position.x, recovery_speed).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT);

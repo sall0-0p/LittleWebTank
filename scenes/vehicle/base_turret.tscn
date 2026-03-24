@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="2_a8ylk"]
 
 [node name="BaseTurret" type="Node2D" unique_id=1065044381]
-z_index = 2
+z_index = 1
 script = ExtResource("1_55wbe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=254579714]

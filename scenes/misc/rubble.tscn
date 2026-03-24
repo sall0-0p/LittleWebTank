@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cuqn0tuymop1x"]
+
+[ext_resource type="Texture2D" uid="uid://dss2m2fbi5xh7" path="res://assets/buildings/rubble/rubble_solo.png" id="1_5lkws"]
+
+[node name="Rubble" type="Sprite2D" unique_id=956918395]
+z_as_relative = false
+texture = ExtResource("1_5lkws")
+region_rect = Rect2(0, 0, 48, 48)

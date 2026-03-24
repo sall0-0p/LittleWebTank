@@ -5,16 +5,16 @@
 [ext_resource type="Script" uid="uid://bav784teaaja6" path="res://scenes/vehicle/weapon_controller.gd" id="5_smsx4"]
 
 [node name="BaseVehicle" type="CharacterBody2D" unique_id=2023013389]
+z_index = 10
 script = ExtResource("1_u65k7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397224566]
 z_index = 1
 rotation = 1.5707964
 
-[node name="ShadowSprite" parent="Sprite2D" unique_id=1518839535 node_paths=PackedStringArray("original") instance=ExtResource("2_5jifg")]
+[node name="ShadowSprite" parent="Sprite2D" unique_id=1518839535 instance=ExtResource("2_5jifg")]
 rotation = 0.0
 shadow_offset = Vector2(-7, 7)
-original = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1112466741]
 visible = false

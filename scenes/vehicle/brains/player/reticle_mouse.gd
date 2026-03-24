@@ -17,7 +17,6 @@ func _process_building_hover():
 		var area = result.collider;
 		var building = area.get_parent();
 		
-		print(last_hovered_building == building)
 		if building is BaseBuilding:
 			if (last_hovered_building == building):
 				return;

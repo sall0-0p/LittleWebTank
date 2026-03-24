@@ -3,5 +3,6 @@
 [ext_resource type="Script" uid="uid://bc3ku014bbay4" path="res://scenes/weapon/base_weapon.gd" id="2_8qoo6"]
 
 [node name="BaseWeapon" type="Sprite2D" unique_id=1459252975]
+z_index = 2
 rotation = 1.5707964
 script = ExtResource("2_8qoo6")
