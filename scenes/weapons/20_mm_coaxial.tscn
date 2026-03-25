@@ -26,18 +26,23 @@ weapon = NodePath("..")
 
 [node name="Sound2" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="0" unique_id=364754323]
 stream = ExtResource("5_r2hrh")
+volume_db = 5.0
 
 [node name="Sound3" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="1" unique_id=1846054541]
 stream = ExtResource("6_qr5uv")
+volume_db = 5.0
 
 [node name="Sound4" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="2" unique_id=1484502332]
 stream = ExtResource("7_3xmit")
+volume_db = 5.0
 
 [node name="Sound5" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="3" unique_id=1885075474]
 stream = ExtResource("8_p417f")
+volume_db = 5.0
 
 [node name="Sound1" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="4" unique_id=343744227]
 stream = ExtResource("4_hdxws")
+volume_db = 5.0
 
 [node name="ReloadingAudio" parent="." index="3" unique_id=748846501]
 stream = ExtResource("9_1ukud")
