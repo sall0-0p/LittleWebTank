@@ -13,6 +13,9 @@ func _ready() -> void:
 	
 func get_active_weapon() -> BaseWeapon:
 	return _active_weapon;
+
+func get_active_weapon_index() -> int:
+	return _active_weapon_index;
 	
 func switch_weapon(index: int):
 	if (index >= 0 and index < available_weapons.size()):

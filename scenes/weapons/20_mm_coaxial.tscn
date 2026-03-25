@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bgrht6gje6d7x"]
+
+[ext_resource type="PackedScene" uid="uid://cpd1veqey5xun" path="res://scenes/weapon/base_weapon.tscn" id="1_gvcb2"]
+[ext_resource type="PackedScene" uid="uid://cmm3tcde23kik" path="res://scenes/weapon/components/cannon_muzzle_component.tscn" id="2_1ukud"]
+[ext_resource type="Resource" uid="uid://dbw7mc2i8pqph" path="res://data/ammo/20mm_flag.tres" id="2_cyttx"]
+[ext_resource type="PackedScene" uid="uid://dypyyj8f57ikf" path="res://scenes/weapon/solver/ballistic_weapon_solver.tscn" id="3_cyttx"]
+[ext_resource type="AudioStream" uid="uid://b5rss1rvljj6u" path="res://assets/sound/gun/shot/20mm/20mm_01.mp3" id="4_hdxws"]
+[ext_resource type="AudioStream" uid="uid://cr34yp8bnasux" path="res://assets/sound/gun/shot/20mm/20mm_02.mp3" id="5_r2hrh"]
+[ext_resource type="AudioStream" uid="uid://b83ft78h7eo2s" path="res://assets/sound/gun/shot/20mm/20mm_03.mp3" id="6_qr5uv"]
+[ext_resource type="AudioStream" uid="uid://cvgp8211jsns4" path="res://assets/sound/gun/shot/20mm/20mm_04.mp3" id="7_3xmit"]
+[ext_resource type="AudioStream" uid="uid://cdhufpgbttv8s" path="res://assets/sound/gun/shot/20mm/20mm_05.mp3" id="8_p417f"]
+[ext_resource type="AudioStream" uid="uid://3ck5pulidqmk" path="res://assets/sound/gun/reload/flak_ac.mp3" id="9_1ukud"]
+
+[node name="20mmCoaxial" unique_id=1459252975 node_paths=PackedStringArray("solver") instance=ExtResource("1_gvcb2")]
+magazine_capacity = 30
+base_spread_degrees = 1.0
+fire_rate_delay = 0.4
+firing_mode = 0
+ammo_type = ExtResource("2_cyttx")
+solver = NodePath("BallisticWeaponSolver")
+
+[node name="CannonMuzzleComponent" parent="." index="0" unique_id=1022626438 node_paths=PackedStringArray("weapon") instance=ExtResource("2_1ukud")]
+weapon = NodePath("..")
+
+[node name="BallisticWeaponSolver" parent="." index="1" unique_id=1034142950 instance=ExtResource("3_cyttx")]
+
+[node name="Sound1" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="0" unique_id=1459614263]
+stream = ExtResource("4_hdxws")
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="1" unique_id=364754323]
+stream = ExtResource("5_r2hrh")
+
+[node name="Sound3" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="2" unique_id=1846054541]
+stream = ExtResource("6_qr5uv")
+
+[node name="Sound4" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="3" unique_id=1484502332]
+stream = ExtResource("7_3xmit")
+
+[node name="Sound5" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="4" unique_id=1885075474]
+stream = ExtResource("8_p417f")
+
+[node name="ReloadingAudio" parent="." index="3" unique_id=748846501]
+stream = ExtResource("9_1ukud")

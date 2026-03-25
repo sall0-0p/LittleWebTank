@@ -4,10 +4,10 @@ class_name BaseShell
 @export var fuze_component: BaseFuzeComponent;
 @export var warhead_component: BaseWarheadComponent;
 @export var flight_component: BaseShellFlightComponent;
+@export var current_velocity: float = 0;
 
-var current_velocity: Vector2;
-
-func setup(ammo_type: ProjectileData, pitch: float, altitude: float) -> void:
+var parent: BaseWeapon;
+func setup(ammo_type: ProjectileData, pitch: float, altitude: float, gun: BaseWeapon) -> void:
 	if flight_component:
 		flight_component.init(ammo_type, pitch, altitude);
 		
@@ -16,6 +16,8 @@ func setup(ammo_type: ProjectileData, pitch: float, altitude: float) -> void:
 	
 	if fuze_component:
 		fuze_component.init(ammo_type);
+	
+	parent = gun;
 
 func _ready() -> void:
 	if fuze_component:
@@ -29,5 +31,3 @@ func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vect
 		warhead_component.detonate(hit_object, impact_point, impact_normal, pitch, current_velocity, shape_index);
 		
 	$Sprite2D.hide();
-	
-	

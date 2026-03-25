@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cpd1veqey5xun"]
 
+[ext_resource type="Script" uid="uid://b74ronsouxmby" path="res://scenes/weapon/shooting_audio_proxy.gd" id="2_4s0hm"]
 [ext_resource type="Script" uid="uid://bc3ku014bbay4" path="res://scenes/weapon/base_weapon.gd" id="2_8qoo6"]
 
 [node name="BaseWeapon" type="Sprite2D" unique_id=1459252975]
@@ -7,7 +8,10 @@ z_index = 2
 rotation = 1.5707964
 script = ExtResource("2_8qoo6")
 
-[node name="ShootingAudio" type="AudioStreamPlayer2D" parent="." unique_id=1459614263]
+[node name="ShootingAudioProxy" type="Node2D" parent="." unique_id=2108031334]
+script = ExtResource("2_4s0hm")
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" unique_id=1459614263]
 
 [node name="ReloadingAudio" type="AudioStreamPlayer2D" parent="." unique_id=748846501]
 

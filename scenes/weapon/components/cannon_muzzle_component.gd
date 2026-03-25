@@ -5,7 +5,11 @@ func _on_weapon_fired():
 	var shell = ammo.shell_scene.instantiate();
 
 	shell.global_position = global_position;
-	shell.global_rotation = global_rotation - deg_to_rad(90);
 	
-	shell.setup(ammo, weapon.mantlet.elevation, weapon.trunnion_height);
+	var base_angle = global_rotation - deg_to_rad(90);
+	var max_spread = weapon.base_spread_degrees * ammo.spread_multiplier;
+	var spread = deg_to_rad(randf_range(-max_spread, +max_spread));
+	shell.global_rotation = base_angle + spread;
+	
+	shell.setup(ammo, weapon.mantlet.elevation, weapon.trunnion_height, get_parent());
 	get_tree().root.add_child(shell);

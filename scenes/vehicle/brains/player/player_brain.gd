@@ -19,7 +19,17 @@ func _physics_process(_delta: float) -> void:
 	if (_controlled_unit):
 		global_position = _controlled_unit.global_position;
 		if (_controlled_unit.weapon_controller):
-			_controlled_unit.weapon_controller.aim_active_weapon(get_global_mouse_position());
+			var weapon_controller: WeaponController = _controlled_unit.weapon_controller;
+			weapon_controller.aim_active_weapon(get_global_mouse_position());
+			
+			var active_weapon: BaseWeapon = weapon_controller.get_active_weapon();
+			if (active_weapon):
+				if (active_weapon.firing_mode == BaseWeapon.FiringMode.AUTO):
+					if (Input.is_action_pressed("fire")):
+						weapon_controller.fire_active_weapon();
+				elif (active_weapon.firing_mode == BaseWeapon.FiringMode.SEMI):
+					if (Input.is_action_just_pressed("fire")):
+						weapon_controller.fire_active_weapon();
 
 func _unhandled_input(event: InputEvent) -> void:
 	if (_controlled_unit and _controlled_unit.movement_controller):
@@ -41,5 +51,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_released("move_right"):
 			_controlled_unit.movement_controller.set_steering(0);
 	
-	if (_controlled_unit and _controlled_unit.weapon_controller) and event.is_action_pressed("fire"):
-		_controlled_unit.weapon_controller.fire_active_weapon();
+	if (_controlled_unit and _controlled_unit.weapon_controller):
+		var weapon_controller: WeaponController = _controlled_unit.weapon_controller;
+		if (event.is_action_pressed("swap_weapon")):
+			var current_weapon_index = weapon_controller.get_active_weapon_index();
+			var weapons = weapon_controller.available_weapons;
+			
+			if (weapons.get(current_weapon_index+1)):
+				weapon_controller.switch_weapon(current_weapon_index+1);
+			else:
+				weapon_controller.switch_weapon(0);

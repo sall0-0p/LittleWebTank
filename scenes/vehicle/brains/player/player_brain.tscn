@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfmqb1b3rmovc" path="res://scenes/vehicle/brains/player/player_brain.gd" id="1_8tvlx"]
 [ext_resource type="Script" uid="uid://bl0ry1lablln3" path="res://scenes/vehicle/brains/player/reticle_mouse.gd" id="2_5y85y"]
 [ext_resource type="Texture2D" uid="uid://bdw6cuw0w10uf" path="res://assets/hud/reticle-inner.png" id="2_l8tca"]
-[ext_resource type="Texture2D" uid="uid://wwbrbaeekl4c" path="res://assets/hud/reticle-outer.png" id="4_4wwd3"]
+[ext_resource type="Texture2D" uid="uid://dh6kf213ee8x2" path="res://assets/hud/segmented-indicator.png" id="4_0kejm"]
 [ext_resource type="Script" uid="uid://dxt38ptdg2oe6" path="res://scenes/vehicle/brains/player/reticle_impact.gd" id="5_ggwbj"]
 [ext_resource type="Script" uid="uid://mgx5qp0vn581" path="res://scenes/vehicle/brains/camera_target.gd" id="6_ggwbj"]
 [ext_resource type="Script" uid="uid://pr8th151kndd" path="res://scenes/vehicle/brains/player/aiming_hud.gd" id="7_0kejm"]
@@ -16,15 +16,15 @@ outline_color = Color(0, 0, 0, 1)
 script = ExtResource("1_8tvlx")
 
 [node name="ReticleMouse" type="Sprite2D" parent="." unique_id=780348123]
-visible = false
 z_index = 200
 texture = ExtResource("2_l8tca")
 script = ExtResource("2_5y85y")
 
 [node name="ReticleImpact" type="Sprite2D" parent="." unique_id=900857139 node_paths=PackedStringArray("player_brain")]
-visible = false
 z_index = 200
-texture = ExtResource("4_4wwd3")
+texture = ExtResource("4_0kejm")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
 script = ExtResource("5_ggwbj")
 player_brain = NodePath("..")
 

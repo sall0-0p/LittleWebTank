@@ -12,6 +12,7 @@
 
 [node name="17pdr" unique_id=1459252975 node_paths=PackedStringArray("solver") instance=ExtResource("1_xnmex")]
 texture = ExtResource("2_6tdrt")
+base_spread_degrees = 0.025
 solver = NodePath("BallisticWeaponSolver")
 
 [node name="BallisticWeaponSolver" parent="." index="0" unique_id=1034142950 instance=ExtResource("3_h38q6")]
@@ -29,7 +30,7 @@ weapon = NodePath("..")
 [node name="ShadowSprite" parent="." index="4" unique_id=1518839535 instance=ExtResource("5_acb4u")]
 rotation = 0.0
 
-[node name="ShootingAudio" parent="." index="5" unique_id=1459614263]
+[node name="Sound1" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="0" unique_id=1459614263]
 stream = ExtResource("8_fpod5")
 volume_db = 2.0
 bus = &"SFX"

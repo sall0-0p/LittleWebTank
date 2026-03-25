@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileData" format=3 uid="uid://dbw7mc2i8pqph"]
+
+[ext_resource type="Script" uid="uid://cjt1u0kael2ut" path="res://resources/projectile_data.gd" id="1_i8ba1"]
+[ext_resource type="PackedScene" uid="uid://cwqg0omc4t6cq" path="res://scenes/projectiles/shell_frag.tscn" id="2_i8ba1"]
+
+[resource]
+script = ExtResource("1_i8ba1")
+name = "20mm Polsten Cannon"
+muzzle_velocity = 160.0
+mass = 0.12
+warhead_effect_multiplier = 0.5
+shell_scene = ExtResource("2_i8ba1")
+metadata/_custom_type_script = "uid://cjt1u0kael2ut"

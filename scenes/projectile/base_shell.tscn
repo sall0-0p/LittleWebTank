@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://5nq62obun3br" path="res://scenes/projectile/base_shell.gd" id="1_envr5"]
 
 [node name="BaseShell" type="Area2D" unique_id=1610956265]
+z_index = 20
 script = ExtResource("1_envr5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=267557469]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056310083]
+rotation = 1.5707964

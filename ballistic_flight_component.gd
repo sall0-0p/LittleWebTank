@@ -14,6 +14,7 @@ var drag_coefficient: float;
 var cross_section: float;
 var caliber: float;
 var arming_distance: float;
+var base_sprite_scale: Vector2 = Vector2.ONE;
 
 var distance_travelled: float = 0;
 func init(ammo: ProjectileData, pitch_degrees: float, alt: float):
@@ -30,6 +31,8 @@ func init(ammo: ProjectileData, pitch_degrees: float, alt: float):
 	velocity_v = initial_velocity * sin(pitch);
 	
 	cross_section = PI * (caliber/2.0)**2.0;
+	if (main_sprite):
+		base_sprite_scale = main_sprite.scale;
 
 func _physics_process(delta: float) -> void:
 	var total_speed: float = sqrt(velocity_v**2 + velocity_h**2);
@@ -107,12 +110,13 @@ func _physics_process(delta: float) -> void:
 		# emit signal
 		impact_detected.emit(result.collider, result.position, result.normal, pitch, result.shape);
 		return;
-	
+		
+	get_parent().current_velocity = total_speed;
 	get_parent().global_position = target_position;
 	altitude = target_altitude;
 
 func _process(_delta: float) -> void:
 	if (main_sprite):
-		main_sprite.scale.y = abs(1.0 - (abs(pitch)));
+		main_sprite.scale.y = base_sprite_scale.y * abs(1.0 - (abs(pitch)));
 	
 	

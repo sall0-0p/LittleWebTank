@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmdu5bv824ruf" path="res://scenes/projectile/base_shell.tscn" id="1_tqntc"]
 [ext_resource type="Texture2D" uid="uid://dlvn8gc8rkow0" path="res://assets/effects/shots.png" id="2_136ix"]
 [ext_resource type="PackedScene" uid="uid://dwborgyydlix5" path="res://scenes/projectiles/components/fuzes/impact_fuze_component.tscn" id="3_136ix"]
-[ext_resource type="PackedScene" uid="uid://c2y11v7jdwt6i" path="res://scenes/projectiles/components/warheads/he_warhead_component.tscn" id="4_ppnwd"]
+[ext_resource type="PackedScene" uid="uid://c2y11v7jdwt6i" path="res://scenes/projectiles/components/warheads/he/he_warhead_component.tscn" id="4_ppnwd"]
 [ext_resource type="PackedScene" uid="uid://cgvaakxev07hi" path="res://scenes/projectiles/components/movements/ballistic_flight_component.tscn" id="5_136ix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g86bi"]
@@ -13,8 +13,15 @@ size = Vector2(66, 6)
 atlas = ExtResource("2_136ix")
 region = Rect2(9, 61, 6, 66)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_136ix"]
+atlas = ExtResource("2_136ix")
+region = Rect2(26, 61, 5, 33)
+
+[sub_resource type="Curve" id="Curve_ppnwd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.14619881), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="ShellHE" unique_id=1610956265 node_paths=PackedStringArray("fuze_component", "warhead_component", "flight_component") instance=ExtResource("1_tqntc")]
-z_index = 5
 fuze_component = NodePath("ImpactFuzeComponent")
 warhead_component = NodePath("HEWarheadComponent")
 flight_component = NodePath("BallisticFlightComponent")
@@ -23,13 +30,32 @@ flight_component = NodePath("BallisticFlightComponent")
 shape = SubResource("RectangleShape2D_g86bi")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1056310083]
-rotation = 1.5707964
 texture = SubResource("AtlasTexture_ppnwd")
 
 [node name="ImpactFuzeComponent" parent="." index="2" unique_id=1484492782 node_paths=PackedStringArray("flight_component") instance=ExtResource("3_136ix")]
 flight_component = NodePath("../BallisticFlightComponent")
 
-[node name="HEWarheadComponent" parent="." index="3" unique_id=506000925 instance=ExtResource("4_ppnwd")]
+[node name="HEWarheadComponent" parent="." index="3" unique_id=506000925 node_paths=PackedStringArray("particles", "main_sprite") instance=ExtResource("4_ppnwd")]
+particles = NodePath("../Fragmentation")
+main_sprite = NodePath("../Sprite2D")
 
 [node name="BallisticFlightComponent" parent="." index="4" unique_id=568646173 node_paths=PackedStringArray("main_sprite") instance=ExtResource("5_136ix")]
 main_sprite = NodePath("../Sprite2D")
+
+[node name="Fragmentation" type="CPUParticles2D" parent="." index="5" unique_id=1193003858]
+emitting = false
+amount = 25
+texture = SubResource("AtlasTexture_136ix")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 900.0
+damping_min = 500.0
+damping_max = 800.0
+angle_max = 360.0
+scale_amount_curve = SubResource("Curve_ppnwd")
