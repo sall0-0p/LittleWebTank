@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://x8fmoycyh24d"]
 
 [ext_resource type="PackedScene" uid="uid://cpd1veqey5xun" path="res://scenes/weapon/base_weapon.tscn" id="1_11bdy"]
-[ext_resource type="Resource" uid="uid://daen1lc71ek3n" path="res://data/ammo/75SprGr_he.tres" id="2_4hdnb"]
 [ext_resource type="Texture2D" uid="uid://b1ejcanv6bl5b" path="res://assets/vehicles/guns/Image-Stug III Ausf G (late) gun.png" id="2_ejehr"]
+[ext_resource type="Resource" uid="uid://bpcpfy4657la0" path="res://data/ammo/75PzGr_ap.tres" id="3_ejehr"]
 [ext_resource type="AudioStream" uid="uid://d0obhca8jxurl" path="res://assets/sound/gun/shot/17pdr.mp3" id="3_h8rmo"]
 [ext_resource type="PackedScene" uid="uid://dypyyj8f57ikf" path="res://scenes/weapon/solver/ballistic_weapon_solver.tscn" id="4_y0cgs"]
 [ext_resource type="AudioStream" uid="uid://cxc4m8hy0d1fp" path="res://assets/sound/gun/reload/tankgun_r04.mp3" id="4_yqwur"]
@@ -15,7 +15,7 @@
 texture = ExtResource("2_ejehr")
 trunnion_height = 1.5
 base_spread_degrees = 0.03
-ammo_type = ExtResource("2_4hdnb")
+ammo_type = ExtResource("3_ejehr")
 solver = NodePath("BallisticWeaponSolver")
 
 [node name="BallisticWeaponSolver" parent="." index="0" unique_id=1034142950 instance=ExtResource("4_y0cgs")]

@@ -11,4 +11,5 @@ class_name ProjectileData
 @export var base_reload_time: float = 4.5;
 @export var spread_multiplier: float = 1.0;
 @export var warhead_effect_multiplier: float = 1.0;
+@export var base_penetration: float = 143.0;
 @export var shell_scene: PackedScene;

@@ -6,7 +6,7 @@
 
 [node name="BaseBuilding" type="StaticBody2D" unique_id=115956234]
 scale = Vector2(3.5, 3.5)
-collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_exp6l")
 
 [node name="Interior" type="Sprite2D" parent="." unique_id=778038910]
@@ -31,6 +31,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 96, 96)
 
 [node name="BuildingArea" type="Area2D" parent="." unique_id=1994222299]
+collision_layer = 4
+collision_mask = 2
 
 [node name="WallChashingAudio" type="AudioStreamPlayer2D" parent="." unique_id=571046972]
 stream = ExtResource("3_fc50v")

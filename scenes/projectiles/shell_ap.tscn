@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://djt8xxfsfyoy0"]
+
+[ext_resource type="PackedScene" uid="uid://cmdu5bv824ruf" path="res://scenes/projectile/base_shell.tscn" id="1_8a5t4"]
+[ext_resource type="Texture2D" uid="uid://dlvn8gc8rkow0" path="res://assets/effects/shots.png" id="2_48yvv"]
+[ext_resource type="PackedScene" uid="uid://dwborgyydlix5" path="res://scenes/projectiles/components/fuzes/impact_fuze_component.tscn" id="3_fuaei"]
+[ext_resource type="PackedScene" uid="uid://cgvaakxev07hi" path="res://scenes/projectiles/components/movements/ballistic_flight_component.tscn" id="4_ucca3"]
+[ext_resource type="PackedScene" uid="uid://vuydibyig7r" path="res://scenes/projectiles/components/warheads/ap/ap_warhead_component.tscn" id="5_jvpqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgo5n"]
+size = Vector2(62, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va0vk"]
+atlas = ExtResource("2_48yvv")
+region = Rect2(9, 61, 6, 66)
+
+[node name="ShellAP" unique_id=1610956265 node_paths=PackedStringArray("fuze_component", "warhead_component", "flight_component") instance=ExtResource("1_8a5t4")]
+fuze_component = NodePath("ImpactFuzeComponent")
+warhead_component = NodePath("APWarheadComponent")
+flight_component = NodePath("BallisticFlightComponent")
+current_velocity = Vector3(0, 0, 0)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=267557469]
+position = Vector2(-33, 1.4305115e-06)
+shape = SubResource("RectangleShape2D_tgo5n")
+
+[node name="Sprite2D" parent="." index="1" unique_id=1056310083]
+position = Vector2(-33, 1.4305115e-06)
+texture = SubResource("AtlasTexture_va0vk")
+
+[node name="ImpactFuzeComponent" parent="." index="3" unique_id=1484492782 instance=ExtResource("3_fuaei")]
+fuze_delay = 1.0
+
+[node name="BallisticFlightComponent" parent="." index="4" unique_id=551151243 node_paths=PackedStringArray("main_sprite") instance=ExtResource("4_ucca3")]
+main_sprite = NodePath("../Sprite2D")
+
+[node name="APWarheadComponent" parent="." index="5" unique_id=170962009 instance=ExtResource("5_jvpqp")]

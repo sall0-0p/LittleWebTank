@@ -5,3 +5,11 @@
 
 [node name="ImpactFuzeComponent" unique_id=1484492782 instance=ExtResource("1_1npvv")]
 script = ExtResource("2_705ey")
+detonate_on_impact = false
+detonate_when_destroyed = false
+minimum_penetration = 15.0
+fuze_delay = 0.0
+
+[node name="FuzeDelay" type="Timer" parent="." index="0" unique_id=615655919]
+
+[connection signal="timeout" from="FuzeDelay" to="." method="_on_fuze_delay_timeout"]

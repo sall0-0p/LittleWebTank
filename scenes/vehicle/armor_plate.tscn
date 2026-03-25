@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c32j8alwj1cw3"]
+
+[ext_resource type="Script" uid="uid://dachi4iijc8pn" path="res://scenes/vehicles/centurion/armor_plate.gd" id="1_xfox8"]
+
+[node name="ArmorPlate" type="Area2D" unique_id=1894607314]
+collision_layer = 8
+collision_mask = 32
+script = ExtResource("1_xfox8")

@@ -16,7 +16,9 @@ var caliber: float;
 var arming_distance: float;
 var base_sprite_scale: Vector2 = Vector2.ONE;
 
+var invisible_for: int = 0;
 var distance_travelled: float = 0;
+var penetrated_rids: Array[RID] = [];
 func init(ammo: ProjectileData, pitch_degrees: float, alt: float):
 	altitude = alt;
 	pitch = deg_to_rad(pitch_degrees);
@@ -29,6 +31,9 @@ func init(ammo: ProjectileData, pitch_degrees: float, alt: float):
 	var initial_velocity = ammo.muzzle_velocity;
 	velocity_h = initial_velocity * cos(pitch);
 	velocity_v = initial_velocity * sin(pitch);
+	
+	var origin: BaseVehicle = get_parent().origin;
+	penetrated_rids = origin.get_rid_of_all_physical_children();
 	
 	cross_section = PI * (caliber/2.0)**2.0;
 	if (main_sprite):
@@ -61,8 +66,9 @@ func _physics_process(delta: float) -> void:
 	
 	# arming distance to prevent shell from exploding inside a barrel;
 	distance_travelled += h_step.length();
-	if (distance_travelled / ART_SCALE_FACTOR < arming_distance):
-		main_sprite.visible = false
+	if (distance_travelled / ART_SCALE_FACTOR < arming_distance or invisible_for > 0):
+		main_sprite.visible = false;
+		invisible_for = max(0, invisible_for - 1);
 	else:
 		main_sprite.visible = true;
 
@@ -76,7 +82,10 @@ func _physics_process(delta: float) -> void:
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state;
 	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(current_position, target_position);
 	query.hit_from_inside = true;
-	query.exclude = [get_parent().origin, get_parent()];
+	query.collide_with_areas = true;
+	query.collide_with_bodies = true;
+	query.exclude = penetrated_rids;
+	query.collision_mask = 1 + (1 << 3) + (1 << 4);
 	var result = space_state.intersect_ray(query);
 	if (result):
 		raycast_collision_at = (current_position - result.position).length() / (current_position - target_position).length();
@@ -95,23 +104,64 @@ func _physics_process(delta: float) -> void:
 		to_run = "ray"
 	
 	# notify;
+	var shell_velocity = Vector3(facing.x * velocity_h, velocity_v, facing.y * velocity_h);
+	var fuze: BaseFuzeComponent = get_parent().fuze_component;
 	if (to_run == "alt"):
 		get_parent().global_position = current_position + (h_step * altitude_collision_at);
 		altitude = altitude + (v_step * altitude_collision_at);
 		
-		# emit signal
-		impact_detected.emit(null, get_parent().global_position, Vector2.ZERO, pitch, -1);
+		fuze.trigger(null, get_parent().global_position, Vector2.ZERO, shell_velocity, pitch, -1);
 		return;
 		
 	if (to_run == "ray"):
 		get_parent().global_position = result.position;
 		altitude = altitude + (v_step * raycast_collision_at);
 		
-		# emit signal
-		impact_detected.emit(result.collider, result.position, result.normal, pitch, result.shape);
-		return;
+		#var go_on = fuze.trigger(result.collider, result.position, result.normal, pitch, result.shape);
+		var hit_data = fuze.trigger(result.collider, result.position, result.normal, shell_velocity, pitch, result.shape);
+		if hit_data and hit_data.get("penetrate", false):
+			if result.collider is CollisionObject2D:
+				penetrated_rids.append(result.collider.get_rid());
+				
+				var effective_thickness = hit_data.get("effective_thickness", 1.0);
+				var current_penetration = hit_data.get("current_penetration", effective_thickness + 1.0);
+				
+				var retention_factor = sqrt(max(0.01, 1.0 - pow(effective_thickness / current_penetration, 2)));
+				velocity_h *= retention_factor;
+				velocity_v *= retention_factor;
+			else:
+				return;
+		elif hit_data and hit_data.get("ricochet", false):
+			var ricochet_vector = hit_data.get("ricochet_vector", shell_velocity * PI);
+			
+			main_sprite.visible = false;
+			invisible_for = 2;
+			velocity_v = ricochet_vector.y;
+			velocity_h = Vector2(ricochet_vector.x, ricochet_vector.z).length();
+			
+			get_parent().global_rotation = atan2(ricochet_vector.z, ricochet_vector.x);
+			
+			if result.collider is Area2D:
+				penetrated_rids.append(result.collider.get_rid());
+				
+				if (result.collider is ArmorPlate):
+					var armor: ArmorPlate = result.collider;
+					var unit: BaseVehicle = armor.get_unit();
+					if (unit):
+						penetrated_rids.append_array(unit.get_rid_of_all_physical_children());
+			
+			var remaining_delta_ratio = 1.0 - raycast_collision_at;
+			var new_facing = Vector2.from_angle(get_parent().global_rotation);
+			var remaining_h_step = new_facing * velocity_h * ART_SCALE_FACTOR * (delta * remaining_delta_ratio);
+			var remaining_v_step = velocity_v * (delta * remaining_delta_ratio);
+			
+			get_parent().global_position += remaining_h_step;
+			altitude += remaining_v_step;
+			get_parent().current_velocity = ricochet_vector;
+			
+			return;
 		
-	get_parent().current_velocity = total_speed;
+	get_parent().current_velocity = shell_velocity;
 	get_parent().global_position = target_position;
 	altitude = target_altitude;
 

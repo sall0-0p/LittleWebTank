@@ -2,16 +2,13 @@ extends BaseShellComponent
 class_name BaseFuzeComponent
 signal detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int)
 
-@export var flight_component: BaseShellFlightComponent;
+var ammo_type: ProjectileData;
+func init(ammo: ProjectileData):
+	ammo_type = ammo;
 
-func _ready() -> void:
-	if (flight_component):
-		flight_component.impact_detected.connect(_on_shell_impact);
-	else:
-		push_warning("No flight_component detected for a fuze. Shells will not detonate.");
+# return true if continue flying, returns false if not;
+func trigger(hit_object: Node2D, impact_point: Vector2, impact_normal: Vector2, current_velocity: Vector3, pitch: float, shape_index: int) -> Dictionary:
+	return {
+		"penetrate": false,
+	};
 	
-func init(ammo_type: ProjectileData):
-	pass;
-
-func _on_shell_impact(hit_object: Node2D, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int):
-	pass;

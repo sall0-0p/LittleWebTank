@@ -6,12 +6,13 @@
 [resource]
 script = ExtResource("1_0d7ur")
 name = "7.5 cm SprGr.34 HE"
-muzzle_velocity = 260.0
-mass = 5.74
+muzzle_velocity = 109.8
+mass = 5.75
 caliber = 75.0
 drag_coefficient = 0.35
 base_reload_time = 6.5
 spread_multiplier = 1.2
 warhead_effect_multiplier = 1.5
+base_penetration = 174.0
 shell_scene = ExtResource("2_2absg")
 metadata/_custom_type_script = "uid://cjt1u0kael2ut"

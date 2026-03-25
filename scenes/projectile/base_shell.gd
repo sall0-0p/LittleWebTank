@@ -4,7 +4,7 @@ class_name BaseShell
 @export var fuze_component: BaseFuzeComponent;
 @export var warhead_component: BaseWarheadComponent;
 @export var flight_component: BaseShellFlightComponent;
-@export var current_velocity: float = 0;
+@export var current_velocity: Vector3 = Vector3.ZERO;
 @export var origin: BaseVehicle;
 
 var parent: BaseWeapon;
@@ -36,3 +36,4 @@ func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vect
 	$Sprite2D.hide();
 	await $ExplosionSoundProxy.finished;
 	queue_free();
+	

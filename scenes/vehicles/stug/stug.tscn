@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://263ivi7n1juy" path="res://assets/vehicles/hulls/Image-Stug III Ausf G (late).png" id="2_fvewo"]
 [ext_resource type="PackedScene" uid="uid://c118niil0y1u0" path="res://scenes/vehicles/stug/stug_turret.tscn" id="3_w7s0y"]
 [ext_resource type="PackedScene" uid="uid://b103p5k1yc3kj" path="res://scenes/vehicle/movement/tracked_movement_controller.tscn" id="4_e36yo"]
+[ext_resource type="Script" uid="uid://dachi4iijc8pn" path="res://scenes/vehicles/centurion/armor_plate.gd" id="5_e36yo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx3v2"]
 size = Vector2(50, 89)
@@ -18,6 +19,18 @@ loop = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvewo"]
 size = Vector2(93, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e36yo"]
+size = Vector2(1, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2pcb"]
+size = Vector2(81, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edp6l"]
+size = Vector2(81, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87mg5"]
+size = Vector2(1, 30)
 
 [node name="Stug" unique_id=2023013389 node_paths=PackedStringArray("movement_controller") instance=ExtResource("1_acmbn")]
 movement_controller = NodePath("TrackedMovementComponent")
@@ -62,5 +75,52 @@ maximum_traverse = 10.0
 
 [node name="StuK40" parent="StugTurret/GunMantlet" parent_id_path=PackedInt32Array(1065044381, 1215331377) index="0" unique_id=1459252975 node_paths=PackedStringArray("unit")]
 unit = NodePath("../../..")
+
+[node name="ArmorController" type="Node2D" parent="." index="7" unique_id=1020844520]
+
+[node name="Glacier" type="Area2D" parent="ArmorController" index="0" unique_id=54858726]
+script = ExtResource("5_e36yo")
+thickness = 80.0
+angle = 10.0
+metadata/_custom_type_script = "uid://dachi4iijc8pn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Glacier" index="0" unique_id=1219776641]
+visible = false
+z_index = 20
+position = Vector2(41.5, 0)
+shape = SubResource("RectangleShape2D_e36yo")
+
+[node name="Left" type="Area2D" parent="ArmorController" index="1" unique_id=777733140]
+script = ExtResource("5_e36yo")
+thickness = 30.0
+metadata/_custom_type_script = "uid://dachi4iijc8pn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Left" index="0" unique_id=654596211]
+visible = false
+z_index = 20
+position = Vector2(0.5, -14.5)
+shape = SubResource("RectangleShape2D_k2pcb")
+
+[node name="Right" type="Area2D" parent="ArmorController" index="2" unique_id=1764239905]
+script = ExtResource("5_e36yo")
+thickness = 30.0
+metadata/_custom_type_script = "uid://dachi4iijc8pn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Right" index="0" unique_id=1411872972]
+visible = false
+z_index = 20
+position = Vector2(0.5, 14.5)
+shape = SubResource("RectangleShape2D_edp6l")
+
+[node name="Back" type="Area2D" parent="ArmorController" index="3" unique_id=1730402210]
+script = ExtResource("5_e36yo")
+thickness = 50.0
+metadata/_custom_type_script = "uid://dachi4iijc8pn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Back" index="0" unique_id=770059133]
+visible = false
+z_index = 20
+position = Vector2(-40.5, 0)
+shape = SubResource("RectangleShape2D_87mg5")
 
 [editable path="StugTurret"]

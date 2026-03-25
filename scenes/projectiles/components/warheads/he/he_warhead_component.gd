@@ -3,7 +3,7 @@ extends BaseWarheadComponent
 @export var particles: CPUParticles2D;
 @export var main_sprite: Sprite2D;
 
-func detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, current_velocity: float, shape_index: int):
+func detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, current_velocity: Vector3, shape_index: int):
 	var explosion = explosion_scene.instantiate();
 	explosion.global_position = impact_point;
 	explosion.explosion_scale = ammo_type.warhead_effect_multiplier;

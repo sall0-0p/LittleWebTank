@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cobqh8jch31bo" path="res://assets/vehicles/hulls/Image-A41 Centurion Mk 1.png" id="2_vb5ff"]
 [ext_resource type="PackedScene" uid="uid://o8n3oc17gba2" path="res://scenes/vehicles/centurion/centurion_turret.tscn" id="5_qvma3"]
 [ext_resource type="Resource" uid="uid://clitg5lvk5okw" path="res://data/ammo/17pdr_he.tres" id="6_r271k"]
+[ext_resource type="PackedScene" uid="uid://c32j8alwj1cw3" path="res://scenes/vehicle/armor_plate.tscn" id="7_4sfsa"]
 [ext_resource type="PackedScene" uid="uid://ckc05otboo3y1" path="res://scenes/vehicle/exhaust_marker.tscn" id="7_qadj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2t6jl"]
@@ -21,6 +22,15 @@ loop = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r271k"]
 size = Vector2(120, 54)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdrlw"]
+size = Vector2(106, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j08mk"]
+size = Vector2(105.5, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dblk"]
+size = Vector2(2.75, 28)
+
 [node name="Centurion" unique_id=2023013389 node_paths=PackedStringArray("movement_controller") instance=ExtResource("1_lg3p6")]
 movement_controller = NodePath("TrackedVehicleControls")
 
@@ -36,7 +46,7 @@ shape = SubResource("RectangleShape2D_2t6jl")
 available_weapons = [NodePath("../CenturionTurret/GunMantlet/17pdr"), NodePath("../CenturionTurret/GunMantlet/20mmCoaxial")]
 
 [node name="TrackedVehicleControls" parent="." index="3" unique_id=1266421068 node_paths=PackedStringArray("hull") instance=ExtResource("2_2t6jl")]
-position = Vector2(-13.154839, -25.465137)
+position = Vector2(0, 1)
 acceleration = 2.5
 turn_speed = 25.0
 hull = NodePath("..")
@@ -51,6 +61,7 @@ ammo_type = ExtResource("6_r271k")
 unit = NodePath("../../..")
 
 [node name="20mmCoaxial" parent="CenturionTurret/GunMantlet" parent_id_path=PackedInt32Array(1065044381, 1215331377) index="1" unique_id=704435664 node_paths=PackedStringArray("unit")]
+position = Vector2(17, -4)
 unit = NodePath("../../..")
 
 [node name="ExhaustMarker" parent="." index="5" unique_id=1467567748 instance=ExtResource("7_qadj6")]
@@ -72,5 +83,44 @@ required_speed = 1.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RammingArea" index="0" unique_id=1264642190]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_r271k")
+
+[node name="ArmorController" type="Node2D" parent="." index="9" unique_id=1463517134]
+
+[node name="Glacier" parent="ArmorController" index="0" unique_id=1894607314 instance=ExtResource("7_4sfsa")]
+visible = false
+thickness = 76.2
+angle = 57.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ArmorController/Glacier" index="0" unique_id=565780553]
+polygon = PackedVector2Array(53, 16, 52, 16, 52, 14, 28, 14, 28, -14, 44.45849, -13.999999, 52, -14, 52, -16, 53, -16)
+one_way_collision_margin = 0.0
+
+[node name="Left" parent="ArmorController" index="1" unique_id=258739385 instance=ExtResource("7_4sfsa")]
+visible = false
+thickness = 51.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Left" index="0" unique_id=1990100272]
+z_index = 20
+position = Vector2(-1, -15)
+shape = SubResource("RectangleShape2D_xdrlw")
+
+[node name="Right" parent="ArmorController" index="2" unique_id=2074759689 instance=ExtResource("7_4sfsa")]
+visible = false
+thickness = 51.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Right" index="0" unique_id=926521676]
+z_index = 20
+position = Vector2(-1, 15)
+shape = SubResource("RectangleShape2D_j08mk")
+
+[node name="Back" parent="ArmorController" index="3" unique_id=464647381 instance=ExtResource("7_4sfsa")]
+visible = false
+thickness = 38.0
+angle = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmorController/Back" index="0" unique_id=908136563]
+z_index = 20
+position = Vector2(-52.375, 0)
+shape = SubResource("RectangleShape2D_7dblk")
 
 [editable path="CenturionTurret"]

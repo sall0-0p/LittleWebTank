@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://vuydibyig7r"]
+
+[ext_resource type="PackedScene" uid="uid://c3m27bddsc640" path="res://scenes/projectile/components/warhead/base_warhead_component.tscn" id="1_c8phx"]
+[ext_resource type="Script" uid="uid://b48elm8owdjsm" path="res://scenes/projectiles/components/warheads/ap/ap_warhead_component.gd" id="2_l5cy4"]
+
+[node name="APWarheadComponent" unique_id=1484492782 instance=ExtResource("1_c8phx")]
+script = ExtResource("2_l5cy4")

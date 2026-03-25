@@ -25,7 +25,7 @@ tile_set = SubResource("TileSet_fc0e3")
 
 [node name="PlayerBrain" parent="." unique_id=482175974 node_paths=PackedStringArray("available_units") instance=ExtResource("3_7jktm")]
 unique_name_in_owner = true
-available_units = [NodePath("../Stug"), NodePath("../Centurion")]
+available_units = [NodePath("../Stug"), NodePath("../Centurion"), NodePath("../Centurion2")]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1094915579]
 visible = false
@@ -34,31 +34,31 @@ height = 0.2
 
 [node name="red_building" parent="." unique_id=115956234 instance=ExtResource("3_fc0e3")]
 position = Vector2(947, 278)
-collision_layer = 1
 
 [node name="red_building2" parent="." unique_id=1386119227 instance=ExtResource("3_fc0e3")]
 position = Vector2(943.99994, 551.00006)
-collision_layer = 1
 damage_level = 1
 
 [node name="red_building3" parent="." unique_id=1051655213 instance=ExtResource("3_fc0e3")]
 position = Vector2(504, 540)
 rotation = 2.4939435
-collision_layer = 1
 
 [node name="red_building4" parent="." unique_id=2090290023 instance=ExtResource("3_fc0e3")]
 position = Vector2(574, 848)
 rotation = 3.1296937
-collision_layer = 1
 
 [node name="red_building5" parent="." unique_id=84064331 instance=ExtResource("3_fc0e3")]
 position = Vector2(170.00002, 454)
 rotation = 1.5638524
-collision_layer = 1
 damage_level = 2
 
 [node name="Stug" parent="." unique_id=2023013389 instance=ExtResource("4_fc0e3")]
-position = Vector2(102, 95)
+position = Vector2(216, 246)
+rotation = -2.2824852
 
 [node name="Centurion" parent="." unique_id=1796046494 instance=ExtResource("3_feb5d")]
 position = Vector2(101, 168)
+
+[node name="Centurion2" parent="." unique_id=2050847048 instance=ExtResource("3_feb5d")]
+position = Vector2(293, -8)
+rotation = 2.6589246

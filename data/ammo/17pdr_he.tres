@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_tp8ho")
 name = "17-Pounder High Explosive"
-muzzle_velocity = 180.0
+muzzle_velocity = 175.8
 warhead_effect_multiplier = 1.5
+base_penetration = 174.0
 shell_scene = ExtResource("2_4jipu")
 metadata/_custom_type_script = "uid://cjt1u0kael2ut"

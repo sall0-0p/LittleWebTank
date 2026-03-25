@@ -48,10 +48,15 @@ func aim_active_weapon(target_position: Vector2) -> void:
 			var angle_diff = angle_difference(global_rotation, angle_to_target);
 			var turn_threshold = deg_to_rad(8.0);
 			
+			# 1 means false, -1 means true;
+			var isReversing: int = 1;
+			if (movement_controller.get_throttle() < 0):
+				isReversing = -1;
+			
 			if angle_diff > turn_threshold:
-				movement_controller.set_steering(1);
+				movement_controller.set_steering(1 * isReversing);
 			elif angle_diff < -turn_threshold:
-				movement_controller.set_steering(-1);
+				movement_controller.set_steering(-1 * isReversing);
 			else:
 				movement_controller.set_steering(0);
 	

@@ -67,6 +67,15 @@ next_vehicle={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Unit Physics"
+2d_physics/layer_3="Ramming"
+2d_physics/layer_4="Armor"
+2d_physics/layer_5="Compartments"
+2d_physics/layer_6="Projectiles"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=3

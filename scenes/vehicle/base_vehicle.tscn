@@ -8,6 +8,8 @@
 
 [node name="BaseVehicle" type="CharacterBody2D" unique_id=2023013389 node_paths=PackedStringArray("weapon_controller", "vehicle_audio_controller")]
 z_index = 10
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_u65k7")
 weapon_controller = NodePath("WeaponController")
 vehicle_audio_controller = NodePath("VehicleAudioController")
@@ -39,6 +41,7 @@ bus = &"SFX"
 position = Vector2(0, 1)
 
 [node name="RammingArea" type="Area2D" parent="." unique_id=226383115]
+collision_layer = 4
 script = ExtResource("4_4ij0u")
 
 [connection signal="body_shape_entered" from="RammingArea" to="RammingArea" method="_on_body_shape_entered"]
