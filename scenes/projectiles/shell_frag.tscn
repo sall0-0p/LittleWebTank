@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cgvaakxev07hi" path="res://scenes/projectiles/components/movements/ballistic_flight_component.tscn" id="3_kn2cf"]
 [ext_resource type="PackedScene" uid="uid://dvt3j5bbgb3j6" path="res://scenes/projectiles/components/warheads/frag/frag_warhead_component.tscn" id="4_5pgbs"]
 [ext_resource type="Script" uid="uid://pg5mrbr73kng" path="res://scenes/projectiles/components/warheads/frag/frag_warhead_component.gd" id="6_5pgbs"]
+[ext_resource type="AudioStream" uid="uid://yks5vkbjj6xe" path="res://assets/sound/explosion/flak/flak_01.mp3" id="7_ap3ox"]
+[ext_resource type="AudioStream" uid="uid://f0t1h6nk35x0" path="res://assets/sound/explosion/flak/flak_02.mp3" id="8_p7odm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn2cf"]
 size = Vector2(62, 2)
@@ -63,3 +65,9 @@ damping_min = 800.0
 damping_max = 1500.0
 angle_max = 360.0
 scale_amount_curve = SubResource("Curve_ap3ox")
+
+[node name="Sound1" parent="ExplosionSoundProxy" parent_id_path=PackedInt32Array(728465133) index="0" unique_id=1745880729]
+stream = ExtResource("7_ap3ox")
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="ExplosionSoundProxy" parent_id_path=PackedInt32Array(728465133) index="1" unique_id=555382579]
+stream = ExtResource("8_p7odm")

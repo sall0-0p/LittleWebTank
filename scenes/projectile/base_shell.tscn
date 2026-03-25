@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmdu5bv824ruf"]
 
 [ext_resource type="Script" uid="uid://5nq62obun3br" path="res://scenes/projectile/base_shell.gd" id="1_envr5"]
+[ext_resource type="PackedScene" uid="uid://b4282x5ayt0s1" path="res://scenes/misc/audio_proxy.tscn" id="2_obpwk"]
 
 [node name="BaseShell" type="Area2D" unique_id=1610956265]
 z_index = 20
@@ -10,3 +11,8 @@ script = ExtResource("1_envr5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1056310083]
 rotation = 1.5707964
+
+[node name="ExplosionSoundProxy" parent="." unique_id=728465133 instance=ExtResource("2_obpwk")]
+randomise_pitch = true
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="ExplosionSoundProxy" unique_id=1745880729]

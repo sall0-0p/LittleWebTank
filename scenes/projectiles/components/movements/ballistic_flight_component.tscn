@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgvaakxev07hi"]
 
 [ext_resource type="PackedScene" uid="uid://bjis5t1qb5uq1" path="res://scenes/projectile/components/movement/base_shell_flight_component.tscn" id="1_s3x20"]
-[ext_resource type="Script" uid="uid://b5fwyo72ooonv" path="res://ballistic_flight_component.gd" id="2_sbkfj"]
+[ext_resource type="Script" uid="uid://b5fwyo72ooonv" path="res://scenes/projectiles/components/movements/ballistic_flight_component.gd" id="2_sbkfj"]
 
 [node name="BallisticFlightComponent" unique_id=1484492782 instance=ExtResource("1_s3x20")]
 script = ExtResource("2_sbkfj")

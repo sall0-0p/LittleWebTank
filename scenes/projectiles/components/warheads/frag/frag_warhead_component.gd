@@ -24,4 +24,4 @@ func detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2,
 	
 	particles.emitting = true;
 	await get_tree().create_timer(particles.lifetime).timeout;
-	get_parent().queue_free();
+	return;

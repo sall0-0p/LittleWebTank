@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4282x5ayt0s1"]
+
+[ext_resource type="Script" uid="uid://b74ronsouxmby" path="res://scenes/misc/audio_proxy.gd" id="1_ar02d"]
+
+[node name="AudioProxy" type="Node2D" unique_id=728465133]
+script = ExtResource("1_ar02d")

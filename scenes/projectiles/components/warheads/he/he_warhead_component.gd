@@ -35,4 +35,4 @@ func _spawn_fragmentation(impact_normal):
 	
 	particles.emitting = true;
 	await get_tree().create_timer(particles.lifetime).timeout;
-	get_parent().queue_free();
+	return;

@@ -22,6 +22,7 @@ position = Vector2(-1.0490734e-06, -24)
 weapon = NodePath("..")
 
 [node name="CannonMuzzleComponent" parent="." index="2" unique_id=1022626438 node_paths=PackedStringArray("weapon") instance=ExtResource("4_h38q6")]
+position = Vector2(-1.0490733e-06, -24)
 weapon = NodePath("..")
 
 [node name="CannonRecoilComponent" parent="." index="3" unique_id=1779563052 node_paths=PackedStringArray("weapon") instance=ExtResource("6_48mi0")]
@@ -30,10 +31,8 @@ weapon = NodePath("..")
 [node name="ShadowSprite" parent="." index="4" unique_id=1518839535 instance=ExtResource("5_acb4u")]
 rotation = 0.0
 
-[node name="Sound1" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(2108031334) index="0" unique_id=1459614263]
+[node name="Sound1" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="0" unique_id=325478546]
 stream = ExtResource("8_fpod5")
-volume_db = 2.0
-bus = &"SFX"
 
 [node name="ReloadingAudio" parent="." index="6" unique_id=748846501]
 stream = ExtResource("9_i2jmi")

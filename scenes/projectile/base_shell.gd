@@ -24,6 +24,7 @@ func _ready() -> void:
 		fuze_component.detonate.connect(_on_detonate);
 
 func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vector2, pitch: float, shape_index: int):
+	$ExplosionSoundProxy.play();
 	if flight_component:
 		flight_component.queue_free();
 	
@@ -31,3 +32,5 @@ func _on_detonate(hit_object: Object, impact_point: Vector2, impact_normal: Vect
 		warhead_component.detonate(hit_object, impact_point, impact_normal, pitch, current_velocity, shape_index);
 		
 	$Sprite2D.hide();
+	await $ExplosionSoundProxy.finished;
+	queue_free();
