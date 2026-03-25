@@ -4,8 +4,8 @@ class_name BaseTurret
 @export_category("Traverse")
 @export var target_position: Vector2 = Vector2.ZERO;
 @export var traverse_speed: float = 5.0;
-@export var minimum_traverse: float = -360;
-@export var maximum_traverse: float = 360;
+@export var minimum_traverse: float = -INF;
+@export var maximum_traverse: float = INF;
 @export var traverse_tolerance: float = 0.1;
 
 var _remaining_error: float = 0.0;
