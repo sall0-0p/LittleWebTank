@@ -15,6 +15,7 @@ enum FiringMode { AUTO, SEMI };
 @export var solver: BaseWeaponSolver;
 @export var mantlet: GunMantlet;
 @export var turret: BaseTurret;
+@export var unit: BaseVehicle;
 
 var can_fire: bool = true;
 var reloading: bool = false;

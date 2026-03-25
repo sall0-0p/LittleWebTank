@@ -61,11 +61,11 @@ func _physics_process(delta: float) -> void:
 	
 	# arming distance to prevent shell from exploding inside a barrel;
 	distance_travelled += h_step.length();
-	if (distance_travelled < arming_distance * ART_SCALE_FACTOR):
-		get_parent().global_position = target_position;
-		altitude = target_altitude;
-		return;
-	
+	if (distance_travelled / ART_SCALE_FACTOR < arming_distance):
+		main_sprite.visible = false
+	else:
+		main_sprite.visible = true;
+
 	# collision detection
 	var altitude_collision_at: float = 2.0;
 	var raycast_collision_at: float = 2.0;
@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state;
 	var query: PhysicsRayQueryParameters2D = PhysicsRayQueryParameters2D.create(current_position, target_position);
 	query.hit_from_inside = true;
-	query.exclude = [get_parent()];
+	query.exclude = [get_parent().origin, get_parent()];
 	var result = space_state.intersect_ray(query);
 	if (result):
 		raycast_collision_at = (current_position - result.position).length() / (current_position - target_position).length();

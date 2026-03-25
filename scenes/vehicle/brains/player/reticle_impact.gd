@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var player_brain: Node2D;
+@export var player_brain: PlayerBrain;
 
 var target_position = Vector2.ZERO;
 var reloading_texture: Texture = preload("res://assets/hud/segmented-indicator.png");
@@ -8,8 +8,8 @@ var targeting_texture: Texture = preload("res://assets/hud/reticle-outer.png");
 func _process(delta: float) -> void:
 	visible = Input.is_action_pressed("aim");
 	if (visible):
-		if (player_brain and player_brain.controlled_unit):
-			var weapon_controller: WeaponController = player_brain.controlled_unit.weapon_controller;
+		if (player_brain and player_brain.get_controlled_unit()):
+			var weapon_controller: WeaponController = player_brain.get_controlled_unit().weapon_controller;
 			var weapon: BaseWeapon = weapon_controller.get_active_weapon();
 			
 			# adjust gun position;

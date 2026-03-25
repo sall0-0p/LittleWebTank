@@ -138,11 +138,11 @@ func _set_collision_disabled(is_disabled: bool) -> void:
 			child.set_deferred("disabled", is_disabled)
 
 func _on_building_area_body_entered(body: Node2D) -> void:
-	if body == %PlayerBrain.controlled_unit:
+	if body == %PlayerBrain.get_controlled_unit():
 		is_player_in_zone = true
 
 func _on_building_area_body_exited(body: Node2D) -> void:
-	if body == %PlayerBrain.controlled_unit:
+	if body == %PlayerBrain.get_controlled_unit():
 		is_player_in_zone = false
 
 func _on_controlled_unit_changed(new_unit) -> void:

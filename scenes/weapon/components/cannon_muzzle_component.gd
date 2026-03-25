@@ -10,6 +10,7 @@ func _on_weapon_fired():
 	var max_spread = weapon.base_spread_degrees * ammo.spread_multiplier;
 	var spread = deg_to_rad(randf_range(-max_spread, +max_spread));
 	shell.global_rotation = base_angle + spread;
+	shell.origin = weapon.unit;
 	
 	shell.setup(ammo, weapon.mantlet.elevation, weapon.trunnion_height, get_parent());
 	get_tree().root.add_child(shell);

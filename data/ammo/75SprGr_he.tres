@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ProjectileData" format=3 uid="uid://daen1lc71ek3n"]
+
+[ext_resource type="Script" uid="uid://cjt1u0kael2ut" path="res://resources/projectile_data.gd" id="1_0d7ur"]
+[ext_resource type="PackedScene" uid="uid://bxrk14sw7qabr" path="res://scenes/projectiles/shell_he.tscn" id="2_2absg"]
+
+[resource]
+script = ExtResource("1_0d7ur")
+name = "7.5 cm SprGr.34 HE"
+muzzle_velocity = 260.0
+mass = 5.74
+caliber = 75.0
+drag_coefficient = 0.35
+base_reload_time = 6.5
+spread_multiplier = 1.2
+warhead_effect_multiplier = 1.5
+shell_scene = ExtResource("2_2absg")
+metadata/_custom_type_script = "uid://cjt1u0kael2ut"

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://x8fmoycyh24d"]
+
+[ext_resource type="PackedScene" uid="uid://cpd1veqey5xun" path="res://scenes/weapon/base_weapon.tscn" id="1_11bdy"]
+[ext_resource type="Resource" uid="uid://daen1lc71ek3n" path="res://data/ammo/75SprGr_he.tres" id="2_4hdnb"]
+[ext_resource type="Texture2D" uid="uid://b1ejcanv6bl5b" path="res://assets/vehicles/guns/Image-Stug III Ausf G (late) gun.png" id="2_ejehr"]
+[ext_resource type="AudioStream" uid="uid://d0obhca8jxurl" path="res://assets/sound/gun/shot/17pdr.mp3" id="3_h8rmo"]
+[ext_resource type="PackedScene" uid="uid://dypyyj8f57ikf" path="res://scenes/weapon/solver/ballistic_weapon_solver.tscn" id="4_y0cgs"]
+[ext_resource type="AudioStream" uid="uid://cxc4m8hy0d1fp" path="res://assets/sound/gun/reload/tankgun_r04.mp3" id="4_yqwur"]
+[ext_resource type="PackedScene" uid="uid://buodv66aub4oh" path="res://scenes/weapon/components/cannon_dust_component.tscn" id="5_qgdk2"]
+[ext_resource type="PackedScene" uid="uid://cmm3tcde23kik" path="res://scenes/weapon/components/cannon_muzzle_component.tscn" id="6_h2v38"]
+[ext_resource type="PackedScene" uid="uid://dy446dx77uy1q" path="res://scenes/weapon/components/cannon_recoil_component.tscn" id="7_3iviy"]
+[ext_resource type="PackedScene" uid="uid://c1t1objsj5oxf" path="res://scenes/misc/shadow_sprite.tscn" id="10_2670o"]
+
+[node name="StuK40" unique_id=1459252975 node_paths=PackedStringArray("solver") instance=ExtResource("1_11bdy")]
+texture = ExtResource("2_ejehr")
+trunnion_height = 1.5
+base_spread_degrees = 0.03
+ammo_type = ExtResource("2_4hdnb")
+solver = NodePath("BallisticWeaponSolver")
+
+[node name="BallisticWeaponSolver" parent="." index="0" unique_id=1034142950 instance=ExtResource("4_y0cgs")]
+
+[node name="CannonDustComponent" parent="." index="1" unique_id=1022626438 node_paths=PackedStringArray("weapon") instance=ExtResource("5_qgdk2")]
+position = Vector2(-6.119594e-07, -14)
+weapon = NodePath("..")
+
+[node name="CannonMuzzleComponent" parent="." index="2" unique_id=742821000 node_paths=PackedStringArray("weapon") instance=ExtResource("6_h2v38")]
+position = Vector2(-6.119594e-07, -14)
+weapon = NodePath("..")
+
+[node name="CannonRecoilComponent" parent="." index="3" unique_id=1422551733 node_paths=PackedStringArray("weapon") instance=ExtResource("7_3iviy")]
+weapon = NodePath("..")
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="ShootingAudioProxy" parent_id_path=PackedInt32Array(728465133) index="0" unique_id=1972125409]
+stream = ExtResource("3_h8rmo")
+
+[node name="ReloadingAudio" parent="." index="5" unique_id=748846501]
+stream = ExtResource("4_yqwur")
+
+[node name="ShadowSprite" parent="." index="7" unique_id=1518839535 instance=ExtResource("10_2670o")]
+rotation = 0.0

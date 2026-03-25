@@ -7,11 +7,11 @@ class_name BaseTurret
 @export var minimum_traverse: float = -360;
 @export var maximum_traverse: float = 360;
 @export var traverse_tolerance: float = 0.1;
-@export var remaining_error: float = 0:
-	get(): return _remaining_error;
-	set(value): pass;
 
 var _remaining_error: float = 0.0;
+func _ready() -> void:
+	target_position = global_position + Vector2.RIGHT * global_rotation;
+
 func _physics_process(delta: float) -> void:
 	var minimum_traverse_rad = deg_to_rad(minimum_traverse);
 	var maximum_traverse_rad = deg_to_rad(maximum_traverse);
@@ -35,3 +35,9 @@ func _physics_process(delta: float) -> void:
 		
 		if $TurretTraverseAudio.playing:
 			$TurretTraverseAudio.playing = false;
+
+func get_remaining_error():
+	return _remaining_error;
+
+func get_current_rotation():
+	return rad_to_deg(rotation);

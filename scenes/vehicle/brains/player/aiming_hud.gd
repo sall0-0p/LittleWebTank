@@ -7,8 +7,8 @@ const ART_SCALE_FIX = 15;
 func _process(_delta: float) -> void:
 	visible = Input.is_action_pressed("aim");
 	if (visible):
-		if (player_brain and player_brain.controlled_unit):
-			var weapon_controller: WeaponController = player_brain.controlled_unit.weapon_controller;
+		if (player_brain and player_brain.get_controlled_unit()):
+			var weapon_controller: WeaponController = player_brain.get_controlled_unit().weapon_controller;
 			var weapon: BaseWeapon = weapon_controller.get_active_weapon();
 			var weapon_pos: Vector2 = weapon.global_position;
 			var target_pos: Vector2 = get_global_mouse_position();

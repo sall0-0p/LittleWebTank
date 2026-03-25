@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://jibnyirfamu0" path="res://scenes/vehicle/vehicle_audio_controller.gd" id="4_smsx4"]
 [ext_resource type="Script" uid="uid://bav784teaaja6" path="res://scenes/vehicle/weapon_controller.gd" id="5_smsx4"]
 
-[node name="BaseVehicle" type="CharacterBody2D" unique_id=2023013389 node_paths=PackedStringArray("vehicle_audio_controller")]
+[node name="BaseVehicle" type="CharacterBody2D" unique_id=2023013389 node_paths=PackedStringArray("weapon_controller", "vehicle_audio_controller")]
 z_index = 10
 script = ExtResource("1_u65k7")
+weapon_controller = NodePath("WeaponController")
 vehicle_audio_controller = NodePath("VehicleAudioController")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1397224566]
@@ -31,7 +32,11 @@ script = ExtResource("5_smsx4")
 script = ExtResource("4_smsx4")
 
 [node name="EngineSound" type="AudioStreamPlayer2D" parent="VehicleAudioController" unique_id=753407554]
+position = Vector2(0, 1)
 bus = &"SFX"
+
+[node name="TrackSound" type="AudioStreamPlayer2D" parent="VehicleAudioController" unique_id=2060454310]
+position = Vector2(0, 1)
 
 [node name="RammingArea" type="Area2D" parent="." unique_id=226383115]
 script = ExtResource("4_4ij0u")

@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://c4xfh32axysox" path="res://assets/sound/explosion/he/he_03.mp3" id="8_ah5am"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g86bi"]
-size = Vector2(66, 6)
+size = Vector2(17, 6)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppnwd"]
 atlas = ExtResource("2_136ix")
@@ -30,6 +30,7 @@ warhead_component = NodePath("HEWarheadComponent")
 flight_component = NodePath("BallisticFlightComponent")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=267557469]
+position = Vector2(25, 0)
 shape = SubResource("RectangleShape2D_g86bi")
 
 [node name="Sprite2D" parent="." index="1" unique_id=1056310083]

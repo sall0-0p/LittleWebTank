@@ -5,9 +5,11 @@ class_name BaseShell
 @export var warhead_component: BaseWarheadComponent;
 @export var flight_component: BaseShellFlightComponent;
 @export var current_velocity: float = 0;
+@export var origin: BaseVehicle;
 
 var parent: BaseWeapon;
 func setup(ammo_type: ProjectileData, pitch: float, altitude: float, gun: BaseWeapon) -> void:
+	$Sprite2D.visible = false;
 	if flight_component:
 		flight_component.init(ammo_type, pitch, altitude);
 		

@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_i8ba1")
 name = "20mm Polsten Cannon"
-muzzle_velocity = 160.0
+muzzle_velocity = 200.0
 mass = 0.12
+arming_distance = 1.0
 warhead_effect_multiplier = 0.5
 shell_scene = ExtResource("2_i8ba1")
 metadata/_custom_type_script = "uid://cjt1u0kael2ut"
